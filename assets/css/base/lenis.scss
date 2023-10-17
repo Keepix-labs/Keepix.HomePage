@@ -1,0 +1,21 @@
+/* Lenis */
+
+body.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+
+  &[data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+}
+
+.lenis.lenis-stopped, .lenis.open-nav {
+  overflow: hidden;
+}
+
+.lenis.lenis-smoot iframe {
+  pointer-events: none;
+}

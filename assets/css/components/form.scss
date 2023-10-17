@@ -1,0 +1,95 @@
+/* Form */
+
+
+.label {
+  font-weight: bold;
+  font-size: .95em;
+  display: block;
+  margin-bottom: .75em;
+
+  small {
+    opacity: .5;
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+.input {
+  --transition: .3s;
+  --bg: var(--bg-body-rgb);
+  --color: var(--txt-secondary);
+  font-size: 1em;
+  border-radius: .65em;
+  background-color: rgba(var(--bg) / 20%);
+  color: var(--color);
+  display: flex;
+  align-items: stretch;
+
+  
+  input, select, textarea {
+    flex: 1;
+    color: currentColor;
+    border: 0;
+    width: 100%;
+    padding: 1.1em 1.25em 1.15em;
+    background-color: transparent;
+    font-family: var(--font-family-main);
+    
+    & + svg {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  svg {
+    width: 1em;
+    position: absolute;
+    height: 100%;
+    width: 3em;
+    padding: 0 1em;
+    pointer-events: none;
+
+    &.show {
+      pointer-events: auto;
+      transition: var(--transition);
+
+      &:not(:hover) {
+        opacity: .5;
+        cursor: pointer;
+        z-index: 5;
+      }
+    }
+
+    &:first-child {
+      left: .1em;
+    }
+
+    & + * {
+      padding-left: 3em;
+    }
+  }
+
+  input::placeholder {
+    color: currentColor;
+    opacity: .35;
+  }
+
+  & + .label {
+    margin-top: 1.25em;
+  }
+
+  & > span {
+    transition: var(--transition);
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgb(var(--bg));
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  & > *:focus ~ span, 
+  & > *:hover ~ span {
+    opacity: .15;
+  }
+}

@@ -1,0 +1,203 @@
+/* Setup */
+
+@import '/assets/css/components/form';
+
+.setup {
+  --content-width: calc(400px + 150 * (100vw - 320px) / 1080);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--marge-tertiary) / 1.25) 0 calc(var(--marge-tertiary) / 3);
+
+  .content {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: auto;
+  }
+
+  &-heading {
+    text-align: center;
+    margin-bottom: calc(var(--marge-tertiary) / 2);
+
+    &-logo {
+      width: calc(60px + 45 * (100vw - 320px) / 1080);
+    }
+  }
+
+  &-footer {
+    text-align: center;
+    font-size: .8em;
+    margin-top: calc(var(--marge-tertiary) / 3);
+
+    p {
+      opacity: .5;
+      margin-bottom: 2em;
+    }
+
+    .btn {
+      flex-direction: row-reverse;
+      font-size: 10px;
+      opacity: .5;
+
+      svg {
+        margin-left: -.5em;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .back {
+    font-weight: bold;
+    font-size: .75em;
+    display: inline-block;
+    margin-bottom: -10px;
+    transition: var(--transition-link);
+    position: absolute;
+    left: 1.5em;
+    top: 1.5em;
+
+    &:not(:hover) {
+      opacity: .5
+    }
+
+    svg {
+      top: -.1em;
+      margin-right: .2em;
+    }
+  }
+
+  &-wrapper {
+    --padding: calc(30px + 25 * (100vw - 320px) / 1080);
+    --gap: calc(var(--padding) / 1.75);
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-primary);
+    padding: var(--padding) calc(var(--padding) / 1.5);
+    color: var(--txt-secondary);
+    gap: var(--gap);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 30px 80px - 50px rgba(0 0 0 / 15%);
+  }
+
+  &-title {
+    font-size: calc(20px + 5 * (100vw - 320px) / 1080);
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &-list {
+    --gap: calc(var(--padding) / 4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    width: 100%;
+  
+    .keepix {
+      background-color: rgba(var(--bg-body-rgb) / 15%);
+      padding: .7em;
+      border-radius: .85em;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      transition: var(--transition-link);
+
+      &:hover {
+        transform: scale(1.05);
+
+        .illu {
+          background-color: var(--bg-body);
+          color: var(--txt-primary);
+
+          svg {
+            transform: scale(1.2);
+          }
+
+          .white {
+            opacity: 0;
+          }
+        }
+      }
+
+      .illu {
+        --size: 4em;
+        width: var(--size);
+        height: var(--size);
+        border-radius: .8em;
+        padding: .75em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--bg-primary);
+        transition: var(--transition-link);
+         
+        svg {
+          width: 100%;
+          transition: transform var(--transition-link);
+        }
+
+        .white {
+          transition: var(--transition-link);
+        }
+      }
+
+      strong {
+        display: block;
+      }
+
+
+      small {
+        font-size: .7em;
+        opacity: .7;
+      }
+    }
+  }
+
+  .message {
+    width: 100%;
+    background-color: rgba(var(--bg-body-rgb) / 15%);
+    padding: 1.5em;
+    border-radius: .85em;
+    font-size: .95em;
+    line-height: 1;
+    text-align: center;
+
+    &.error {
+      background-color: rgba(var(--error-rgb) / 25%);
+      color: var(--error);
+      margin-bottom: calc(var(--gap) * -.25);
+    }
+
+    svg {
+      display: block;
+      margin: auto;
+      font-size: calc(20px + 5 * (100vw - 320px) / 1080);
+      opacity: .5;
+      margin-bottom: .5em;
+    }
+  }
+
+  &-back {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    fill: var(--bg-body);
+    font-size: max(calc(2px - 1 * (100vw - 320px) / 1080), 1px);
+    width: 100vw;
+    height: calc(100% + var(--marge-primary) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    color: var(--txt-primary);
+    pointer-events: none;
+    stroke: currentColor;
+    stroke-width: 1em;
+    opacity: .08;
+
+    svg {
+      overflow: visible;
+    }
+  }
+}

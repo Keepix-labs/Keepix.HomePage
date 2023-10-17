@@ -1,0 +1,20 @@
+/* Fonts */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/satoshi/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/clash-display/ClashDisplay-Variable.woff2') format('woff2'),
+       url('../fonts/clash-display/ClashDisplay-Variable.woff') format('woff'),
+       url('../fonts/clash-display/ClashDisplay-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

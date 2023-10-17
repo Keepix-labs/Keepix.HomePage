@@ -1,0 +1,36 @@
+/* Heading */
+
+.heading {
+  font-weight: 600;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-heading);
+  margin-bottom: var(--marge-secondary);
+  line-height: 1;
+
+  &-small {
+    font-size: 50%;
+    display: block;
+    overflow: hidden;
+    margin-bottom: .15em;
+  }
+
+  &-strong {
+    font-weight: inherit;
+    display: block;
+  }
+
+  @include max($breakpoint-xs) {
+    &-small {
+      font-size: 100%;
+      display: inline;
+
+      &::after {
+        content: ' ';
+      }
+    }
+
+    &-strong {
+      display: inline;
+    }
+  }
+}

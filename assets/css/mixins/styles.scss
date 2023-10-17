@@ -1,0 +1,6 @@
+/* Styles */
+
+@mixin style-primary {
+  background-color: var(--bg-primary);
+  box-shadow: var(--shadow-primary);
+}

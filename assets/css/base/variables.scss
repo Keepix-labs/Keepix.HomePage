@@ -1,0 +1,62 @@
+/* Variables */
+
+:root {
+
+  /* Transition */
+  --cubic: cubic-bezier(.305, .045, .355, 1);
+  --transition-link: .3s;
+
+  /* Fonts */
+  --font-family-main: 'Satoshi', Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Clash Display', Helvetica, Arial, sans-serif;
+  --font-size-primary: calc(13px + 2 * (100vw - 320px) / 1080);
+  --font-size-heading: min(calc(27px + 35 * (100vw - 320px) / 1080), 80px);
+
+  /* Background */
+  --bg-body-rgb: 255 255 255;
+  --bg-body: rgb(var(--bg-body-rgb));
+  --bg-primary-rgb: 0 0 0;
+  --bg-primary: rgb(var(--bg-primary-rgb));
+  --bg-secondary-rgb: 245 245 245;
+  --bg-secondary: rgb(var(--bg-secondary-rgb));
+
+  /* Txt */
+  --txt-primary-rgb: 0 0 0;
+  --txt-primary: rgb(var(--txt-primary-rgb));
+  --txt-secondary-rgb: 255 255 255;
+  --txt-secondary: rgb(var(--txt-secondary-rgb));
+
+  /* Color */
+  --error-rgb: 247 81 69; 
+  --error: rgb(var(--error-rgb));
+
+  /* Marge */
+  --marge-primary: calc(10px + 4 * (100vw - 320px) / 1080);
+  --marge-secondary: calc(25px + 10 * (100vw - 320px) / 1080);
+  --marge-tertiary: calc(50px + 80 * (100vw - 320px) / 1080);
+
+  /* Border */
+  --radius-primary: calc(15px + 5 * (100vw - 320px) / 1080);
+
+  /* Content */
+  --content-padding: calc(20px + 5 * (100vw - 320px) / 1080);
+  --content-width: calc(700px + 400 * (100vw - 320px) / 1080 + var(--content-padding) * 2);
+  --content-max: 85vw;
+
+  /* Header */
+  --header-height: calc(65px + 30 * (100vw - 320px) / 1080);
+  --header-height-fix: calc(55px + 15 * (100vw - 320px) / 1080);
+
+  /* Svg */
+  --stroke-width-primary: 10px;
+  --stroke-width-secondary: 7px;
+
+  @include max($breakpoint-large) {
+    --content-max: 90vw;
+  }
+
+  @include max($breakpoint-xxs) {
+    --content-max: 92vw;
+  }
+
+}

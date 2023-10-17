@@ -1,0 +1,44 @@
+/* Button */
+
+.btn {
+  --bg: var(--bg-body);
+  --color: var(--txt-primary);
+  transition: background-color var(--transition-link), color var(--transition-link), transform .15s;
+  font-weight: 700;
+  background: var(--bg);
+  color: var(--color);
+  padding: 1em 2em 1.1em;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  text-align: center;
+  border: 2px solid var(--bg);
+  gap: .75em;
+  user-select: none;
+
+  &.bordered {
+    background-color: transparent;
+    color: var(--bg);
+
+    &:hover {
+      background-color: var(--bg);
+      color: var(--color)
+    }
+  }
+
+  &:active {
+    transform: scale(.95);
+  }
+
+  svg {
+    top: .1em;
+    margin-right: -.5em;
+  }
+
+  &.secondary {
+    --bg: var(--bg-primary);
+    --color: var(--txt-secondary);
+  }
+}

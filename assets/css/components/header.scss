@@ -1,0 +1,237 @@
+/* Header */
+
+.header {
+  --transition-fix: .5s;
+  --padding: var(--content-padding);
+  position: absolute;
+  inset: var(--marge-primary) 0 auto;
+  z-index: 1000;
+  font-size: .95em;
+
+  a:not(.btn):not(.header-logo) {
+    transition: opacity var(--transition-link);
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  &-wrapper {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    color: var(--txt-secondary);
+    transition: color var(--transition-fix), transform var(--transition-fix), padding var(--transition-fix);
+    inset: inherit;
+    top: calc(var(--marge-primary) * -1);
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: var(--marge-primary);
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: linear-gradient(to bottom, var(--bg-primary), rgba(var(--bg-primary-rgb) / 80%));
+      backdrop-filter: blur(5px);
+      height: 0;
+      transition: height var(--transition-fix);
+      border-radius: 0 0 var(--radius-primary) var(--radius-primary);
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+    }
+  }
+
+  .content {
+    transition: padding var(--transition-fix);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding);
+    left: 0;
+
+    @include max($breakpoint-xl) {
+      max-width: 100%;
+      width: 100%;
+      padding: var(--padding) calc(var(--padding) + var(--marge-primary));
+    }
+  }
+
+  &.fix {
+    .header-wrapper {
+      position: fixed;
+      padding-top: var(--marge-primary);
+
+      &::before {
+        height: 100%;
+      }
+
+      .header-logo {
+        &-sigle {
+          width: 4em;
+        }
+      }
+
+      .content {
+        padding: calc(var(--padding) / 2) var(--padding);
+      }
+    }
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+
+    &-sigle {
+      transition: width var(--transition-fix);
+      width: 5em;
+      overflow: visible;
+      stroke: currentColor;
+      stroke-width: 1em;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+
+      .white {
+        transition: opacity var(--transition-fix);
+      }
+    }
+
+    &-txt {
+      height: 1.9em;
+      margin-left: 1.25em;
+      fill: currentColor;
+    }
+
+    &.hover {
+      .header-logo-sigle {
+        use {
+          animation: hoveredLogo .7s var(--cubic);
+        }
+      }
+    }
+
+    @keyframes hoveredLogo {
+      from {
+        transform: translateY(0%)
+      }
+      50% {
+        transform: translateY(-20%)
+      }
+      to {
+        transform: translateY(0%)
+      }
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25em;
+
+    .btn {
+      padding: .8em 1.7em .85em;
+      font-size: .95em
+    }
+  }
+
+  &-nav {
+    margin-right: auto;
+    font-weight: bold;
+    font-size: .85em;
+    margin-left: calc(var(--padding) * 2);
+    padding-left: calc(var(--padding) * 2);
+
+    &::before {
+      content: '';
+      inset: 0;
+      width: 1px;
+      background-color: currentColor;
+      position: absolute;
+      opacity: .2;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 4.5em;
+    }
+  }
+
+  &-social {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    line-height: 1;
+    gap: .75em;
+  }
+
+  &-lang {
+    --gap: .2em;
+    --size: calc(1em + var(--gap) * 2);
+    line-height: 1;
+    font-size: 1.5em;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+
+    ul {
+      transition: height .5s;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+      height: var(--size);
+
+      &:hover {
+        height: calc(var(--size) * var(--n));
+      }
+
+      li {
+        order: 1;
+        width: var(--size);
+        height: var(--size);
+
+        &.selected {
+          order: 0;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: var(--size);
+          height: var(--size);
+        }
+      }
+    }
+  }
+
+  @include max($breakpoint-large) {
+    &-nav {
+      display: none;
+    }
+  }
+
+  @include max($breakpoint-xxs) {
+    &-lang, .header-logo-txt {
+      display: none;
+    }
+
+    &-right {
+      flex: 0;
+    }
+  }
+
+  @include max($breakpoint-mobile) {
+    .header-logo-txt, &-social {
+      display: none;
+    }
+  }
+}
+
+body:not(.up) .fix .header-wrapper.fixer {
+  transform: translate(-50%, -100%);
+}

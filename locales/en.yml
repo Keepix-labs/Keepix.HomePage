@@ -1,0 +1,161 @@
+site: Keepix
+start: Pre-order now
+
+seo:
+  index:
+    title: Keepix • Your way to proof of home.
+
+header:
+  nav:
+    discover: Discover
+    products: Products
+    setup: My Keepix
+
+index:
+  hero:
+    h1:
+      small: With Keepix, discover your way
+      strong: to proof of home!
+    txt: |
+      Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
+    learn: Learn more
+  features:
+    title:
+      small: A multitudes of
+      strong: web3 features.
+    list:
+      1:
+        title: Easy Node Setup for APY
+        txt: <strong>With Keepix, you can effortlessly set up blockchain nodes across multiple networks.</strong> This simplicity means you can start generating passive income through staking and yield farming without the technical hassle.
+      2:
+        title: Keep Your Privacy
+        txt: <strong>Regulatory scrutiny is on the rise, and your privacy matters.</strong> Keepix allows you to anonymize your transaction transfers by routing them through your own node. This proactive approach safeguards your financial privacy when using platforms like MetaMask.
+      3:
+        title: Be an Active Decentralization Participant
+        txt: <strong>Join the movement for decentralization.</strong> Keepix empowers you to become an active player in the decentralization of various blockchain networks. Instead of being a spectator, you'll be an integral part of the evolving landscape, contributing to the future of blockchain technology.
+      4:
+        title: Secure Internal Wallet
+        txt: <strong>Your crypto assets are valuable, and their security is our priority.</strong> Keepix features an internal wallet that keeps your cryptocurrency safe and easily accessible within your device. Take control of your digital wealth and eliminate third-party wallet concerns.
+      5:
+        title: Your Gateway to Web3
+        txt: <strong>With Keepix, you're not just a user; you're a pioneer of Web3.</strong> Embrace a world where blockchain, cryptocurrency, and decentralized finance merge seamlessly.
+      6:
+        title: Community-Driven Innovation
+        txt: <strong>Keepix is more than just a device;</strong> It's a community of like-minded individuals passionate about blockchain technology. Collaborate, share insights, and be part of something bigger. Together, we drive the innovation that shapes the future.
+      7:
+        title: Effortless Setup with Auto-Configuration
+        txt: <strong>Your Keepix arrives, and in minutes, it's ready to roll.</strong> How? We've pre-loaded your device with blockchain data. For Ethereum, it's all on the SSD. So, you can launch your node main-net ready quickly. Keepix is Fast, secure, and your ticket to instant blockchain action.
+  bloc:
+    1:
+      title: Effortless Setup
+      txt: No technical knowledge required.
+    2:
+      title: Universal Compatibility
+      txt: Works with all major chains, or will be added.
+    3:
+      title: Transparency and Security
+      txt: Open-source code for full control and peace of mind.
+    4:
+      title: Absolute Control
+      txt: Your keys, your control, always.
+  interface:
+    title:
+      small: An interface that only goes
+      strong: to the essentials.
+    txt: |
+      At Keepix, we believe in simplifying the user experience from start to finish. That's why we've developed a user-friendly dashboard that automates the setup process once your Keepix device arrives at your doorstep.
+  keeper:
+    title:
+      small: Become a Keeper
+      strong: as fast as web3!
+    steps:
+      1:
+        title: Purchase your Keepix
+        txt: An easy, secure & confidential purchase in just a few clicks.
+      2:
+        title: Configure your Keepix
+        txt: Once received, install and configure your Keepix in few minutes.
+      3:
+        title: Enjoy your Keepix
+        txt: Stake, exchange and protect your cryptos right at home.
+    bottom: You <strong>own</strong> your <strong>cryptos</strong>.
+  purchase:
+    title:
+      small: Order your first
+      strong: Keepix now!
+    intro: |
+      Did you know that fewer than 1% of active Ethereum users take the initiative to host a node and actively contribute to its existence? 
+    txt: |
+      <p>If you share our passion for crypto, you're already a part of this vibrant community, and together, we're on a mission that defines us.</p>
+      <p>It's imperative that we step up and lead the charge in decentralizing the network ourselves. Just picture a future where colossal online hosting platforms attempt to exert control over networks like Ethereum. Our shared responsibility is to prevent that scenario from ever becoming a reality.</p>
+      <p><i>Join us in shaping the future of crypto through your path to proof of home, be part of&nbsp;the&nbsp;1%!</i></p>
+    box:
+      title: Keepix v1.0
+      txt: Run the major EVM blockchains
+      list:
+        1: Ethernet cable shipped with the Keepix
+        2: Power cable compatible at EU/US homes
+        3: Wifi available to connect wirelessly
+        4: High speed storage with NVME SSD
+        5: HDMI output for direct display access
+      price: Price
+  network:
+    title:
+      small: Discover supported
+      strong: Networks on Keepix
+    txt: |
+      Qui cum venisset ob haec festinatis itineribus Antiochiam, praestrictis palatii ianuis, contempto Caesare, quem videri decuerat.
+    stake: Stake Now
+
+marquee:
+  staking: Staking
+  wallet: Wallet
+  crypto: Cryptocurrency
+  blockchain: Blockchain
+  web3: Web3
+  defi: DeFi
+  hash: Hash
+  eth: Ethereum
+  node: Node
+  mining: Mining
+  proof: Proof
+  community: Community
+  participation: Participation
+
+footer:
+  title:
+    small: Join the Keepix
+    strong: community
+  txt: |
+    Simplifying Decentralization, One Keepix at a Time
+  copyright: © <strong>2023 KEEPIX LAB</strong>. All rights reserved.
+  contact: Contact us
+  infos: Informations
+  terms: Terms & conditions
+  privacy: Privacy Policy
+
+list:
+  title: List of your Keepix's
+  back_home: Back to homepage
+  back_list: Back to list
+  no_keepix: Sorry, no Keepix has been found on this network yet.
+  add_keepix: Add one new Keepix
+  wifi: Please connect to “<strong>Keepix</strong>” Wifi.
+  setup: Setup
+  not_found: Sorry, Keepix not found.
+  unknow_error: Unknown Error.
+  apply: Apply
+  form:
+    name:
+      label: Name of your Keepix
+      placeholder: Name here
+      error: Name not found.
+    ssid:
+      label: SSID
+      placeholder: Please choose an SSID
+      error: SSID not found.
+    password:
+      label: Password
+      placeholder: Create an password
+      error: Password not found.
+      incorrect: Incorrect password.

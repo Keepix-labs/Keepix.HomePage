@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+/* Import base */
+
+@import 'mixins/medias';
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/fonts';
+@import 'base/lenis';
+
+/* General Styles */
+
+html {
+  background: var(--bg-secondary);
+  color: var(--txt-primary);
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-primary);
+  font-weight: 300;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html, body {
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+}
+
+*::selection, .selection-black *::selection {
+  background-color: rgba(var(--bg-primary-rgb) / .7);
+  color: var(--txt-secondary);
+}
+
+.selection-white *::selection {
+  background-color: rgba(var(--bg-body-rgb) / .7);
+  color: var(--txt-primary);
+}
+
+/* Sprites */
+
+svg {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+.sprite {
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  * {
+    stroke: currentColor;
+    stroke-width: 1em;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+  }
+}
+
+.fill {
+  &-primary {
+    fill: var(--txt-primary);
+  }
+
+  &-secondary {
+    fill: var(--txt-secondary);
+  }
+}
+
+/* Main */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--marge-primary);
+  padding: var(--marge-primary) var(--marge-primary) 0;
+  transform-origin: bottom center;
+  will-change: transform;
+  background-color: var(--bg-body);
+  box-shadow: 0 80px 100px -40px rgba(0 0 0 / 8%);
+  z-index: 5;
+}
+
+/* Content */
+
+.content {
+  width: var(--content-width);
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--content-padding);
+}
+
+.intro {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+/* Animated Logo */
+
+.animated-logo {
+  --anim: calc(10px + 20 * (100vw - 320px) / 1080);
+  width: 100%;
+  min-width: calc(900px + 200 * (100vw - 320px) / 1080);
+  overflow: visible;
+
+  @for $i from 1 through 12 {
+    g:nth-child(#{$i}) {
+      --random-duration: #{5 + (0.2 * random(10))}s;
+      animation: animatedLogo var(--random-duration) infinite linear;
+    }
+  }
+
+  @keyframes animatedLogo {
+    from {
+      transform: translateY(calc(var(--anim) * -1));
+    }
+    50% {
+      transform: translateY(var(--anim));
+    }
+    to {
+      transform: translateY(calc(var(--anim) * -1));
+    }
+  }
+}
+
+/* Reveal */
+
+[data-reveal] {
+  --translate: 2rem;
+  --duration: .6s;
+  opacity: 0;
+
+  &.reveal {
+    animation: reveal-show var(--duration) var(--cubic);
+    animation-fill-mode: both;
+    transform-style: preserve-3d;
+  }
+
+  &[data-reveal="opacity"] {
+    --y: 0;
+  }
+
+  &[data-reveal="top"] {
+    --y: calc(var(--translate) * -1);
+  }
+  
+  &[data-reveal="right"] {
+    --x: var(--translate);
+    --y: 0;
+  }
+  
+  &[data-reveal="left"] {
+    --x: calc(var(--translate) * -1);
+    --y: 0;
+  }
+
+  @keyframes reveal-show {
+    from {
+      opacity: 0;
+      transform: translate(var(--x, 0), var(--y, var(--translate)));
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+/* Components */
+
+@import 'components/glitch';
+@import 'components/button';
+@import 'components/header';
+@import 'components/heading';
+@import 'components/footer';

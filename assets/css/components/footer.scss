@@ -1,0 +1,126 @@
+/* Footer */
+
+.footer {
+  --marge: calc(var(--marge-tertiary) / 1.5);
+  --color-secondary: rgba(var(--txt-primary-rgb) / 40%);
+  --left: 40%;
+  color: var(--txt-primary);
+  padding: var(--marge) 0 calc(var(--marge) / 1.5);
+  overflow: hidden;
+
+  .heading {
+    margin-bottom: 0;
+  }
+
+  a {
+    transition: var(--transition-link);
+
+    &:hover {
+      color: var(--color-secondary);  
+    }
+  }
+
+  &-social {
+    display: flex;
+    font-size: calc(25px + 5 * (100vw - 320px) / 1080);
+    margin-top: calc(var(--marge) / 3);
+    gap: .5em;
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    font-size: calc(8px + 1 * (100vw - 320px) / 1080);
+
+    &-sigle {
+      transition: width var(--transition-fix);
+      width: 5em;
+      overflow: visible;
+    }
+
+    &-txt {
+      height: 1.9em;
+      margin-left: 1.25em;
+      fill: currentColor;
+    }
+  }
+
+  &-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--marge) / 2);
+
+    &-left {
+      width: var(--left);
+      min-width: var(--left-min);
+    }
+  }
+
+  &-middle {
+    margin-top: calc(var(--marge) / 3);
+
+    &-title {
+      margin-bottom: 1em;
+    }
+
+    &-right {
+      display: flex;
+      align-items: flex-start;
+      margin-left: auto;
+      flex: 1;
+      justify-content: space-around;
+      white-space: nowrap;
+      gap: calc(var(--marge) / 2);
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        font-size: 1.15em;
+        font-family: var(--font-family-heading);
+        font-weight: 600;
+      }
+    }
+  }
+
+  &-bottom {
+    border-top: 1px solid rgba(var(--bg-primary-rgb) / 10%);
+    margin-top: calc(var(--marge) / 1.5);
+    padding-top: calc(var(--marge) / 4);
+    font-size: .85em;
+    align-items: center;
+    gap: 1em!important;
+  }
+
+  @include max($breakpoint-xl) {
+    &-flex {
+      gap: var(--marge);
+    }
+
+    &-middle {
+      flex-direction: column;
+
+      &-right {
+        width: 100%;
+        justify-content: flex-start;
+        gap: var(--marge);
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  @include max($breakpoint-xxs) {
+    &-flex {
+      &-left {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+
+    &-bottom {
+      padding-top: calc(var(--marge) / 1.5);
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
