@@ -10,6 +10,7 @@
   const password = ref('')
   const hidePassword = ref(true)
   const error = ref(null)
+  const loading = ref(false)
 
   const setup = async () => {
 
@@ -20,6 +21,8 @@
     }
 
     let request = undefined
+
+    set(loading, true)
 
     try {
 
@@ -32,6 +35,8 @@
       console.error(e)
 
     }
+
+    set(loading, false)
 
     if (request?.status == 200) {
 
@@ -54,13 +59,13 @@
   const apply = async () => {
 
     if (name.value == '' || name.value == undefined) {
-      return set(error, 'list.form.name.error')
+      return set(error, 'setup.form.name.error')
     }
     if (ssid.value == '' || ssid.value == undefined) {
-      return set(error, 'list.form.ssid.error')
+      return set(error, 'setup.form.ssid.error')
     } 
     if (password.value == undefined) {
-      return set(error, 'list.form.password.error')
+      return set(error, 'setup.form.password.error')
     }
 
     let request = undefined
@@ -85,9 +90,9 @@
         const result = await request.json()
 
         if (result == false) {
-          return set(error, 'list.form.password.incorrect')
+          return set(error, 'setup.form.password.incorrect')
         } else {
-          window.location = '/list'
+          window.location = '/setup/success'
         }
 
       }
@@ -95,7 +100,7 @@
     } catch (e) {
 
       if (e.message.includes('aborted')) {
-        window.location = '/list'
+        window.location = '/setup/wifi'
       } else {
         return set(error, 'list.unknow_error')
       }
@@ -106,36 +111,37 @@
 
 <template>
   <NuxtLayout name="setup">
-    <NuxtLink :to="localePath('/list')" class="back">
+    <NuxtLink :to="localePath('/setup/choice')" class="back">
       <Icon name="ph:arrow-circle-left" />
-      {{ $t('list.back_list') }}
+      {{ $t('setup.wifi.back') }}
     </NuxtLink>
-    <h1 class="setup-title">{{ $t('list.add_keepix') }}</h1>
+    <h1 class="setup-title">{{ $t('setup.wifi.title') }}</h1>
+    <Loader v-if="loading">Loading...</Loader>
     <div v-if="error" class="message error">{{ $t(error) }}</div>
     <template v-if="search">
       <div class="message">
         <Icon name="ph:wifi-high" />
-        <p v-html="$t('list.wifi')"></p>
+        <p v-html="$t('setup.wifi.desc')"></p>
       </div>
-      <Btn :text="$t('list.setup')" icon="ph:gear" @click="setup()" />
+      <Btn :text="$t('setup.wifi.detection')" icon="ph:gear" @click="setup()" />
     </template>
     <template v-if="config">
       <div class="form">
-        <Input icon="ph:pencil-simple" :label="$t('list.form.name.label')" name="name">
-          <input v-model="name" type="text" id="name" :placeholder="$t('list.form.name.placeholder')" />
+        <Input icon="ph:pencil-simple" :label="$t('setup.form.name.label')" name="name">
+          <input v-model="name" type="text" id="name" :placeholder="$t('setup.form.name.placeholder')" />
         </Input>
-        <Input icon="ph:wifi-high" :label="$t('list.form.ssid.label')" :small="$t('list.form.ssid.placeholder')" name="ssid">
+        <Input icon="ph:wifi-high" :label="$t('setup.form.ssid.label')" :small="$t('setup.form.ssid.placeholder')" name="ssid">
           <select v-model="ssid" id="ssid">
-            <option value="" disabled selected hidden>{{ $t('list.form.ssid.placeholder') }}</option>
+            <option value="" disabled selected hidden>{{ $t('setup.form.ssid.placeholder') }}</option>
             <option v-for="option in ssidOptions" :value="option">{{ option }}</option>
           </select>
         </Input>
-        <Input icon="ph:lock-simple" :label="$t('list.form.password.label')" name="password">
-          <input v-model="password" :type="hidePassword ? 'password' : 'text'" id="password" :placeholder="$t('list.form.password.placeholder')" />
+        <Input icon="ph:lock-simple" :label="$t('setup.form.password.label')" name="password">
+          <input v-model="password" :type="hidePassword ? 'password' : 'text'" id="password" :placeholder="$t('setup.form.password.placeholder')" />
           <Icon class="show" :name="hidePassword ? 'ph:eye' : 'ph:eye-closed'" @click="hidePassword = !hidePassword" />
         </Input>
       </div>
-      <Btn :text="$t('list.apply')" icon="ph:check-circle" @click="apply()" />
+      <Btn :text="$t('setup.form.submit')" icon="ph:check-circle" @click="apply()" v-if="config" />
     </template>
   </NuxtLayout>
 </template>

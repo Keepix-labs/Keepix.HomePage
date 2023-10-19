@@ -1,0 +1,15 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  width: 100%;
+  padding: 1.5em;
+  border-radius: 0.85em;
+  font-size: 0.95em;
+  line-height: 1;
+  text-align: center;
+  background-color: rgba(var(--info-rgb) / 25%);
+  color: var(--info);
+  margin-bottom: calc(var(--gap) * -0.25);
+}

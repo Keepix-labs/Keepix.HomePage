@@ -84,7 +84,7 @@ index:
       small: Order your first
       strong: Keepix now!
     intro: |
-      Did you know that fewer than 1% of active Ethereum users take the initiative to host a node and actively contribute to its existence? 
+      Did you know that fewer than 1% of active Ethereum users take the initiative to host a node and actively contribute to its existence?
     txt: |
       <p>If you share our passion for crypto, you're already a part of this vibrant community, and together, we're on a mission that defines us.</p>
       <p>It's imperative that we step up and lead the charge in decentralizing the network ourselves. Just picture a future where colossal online hosting platforms attempt to exert control over networks like Ethereum. Our shared responsibility is to prevent that scenario from ever becoming a reality.</p>
@@ -134,17 +134,27 @@ footer:
   terms: Terms & conditions
   privacy: Privacy Policy
 
-list:
-  title: List of your Keepix's
-  back_home: Back to homepage
-  back_list: Back to list
-  no_keepix: Sorry, no Keepix has been found on this network yet.
-  add_keepix: Add one new Keepix
-  wifi: Please connect to “<strong>Keepix</strong>” Wifi.
-  setup: Setup
-  not_found: Sorry, Keepix not found.
-  unknow_error: Unknown Error.
-  apply: Apply
+setup:
+  intro:
+    title: Setup
+    desc: Please plug your “<strong>Keepix</strong>” into the mains.
+    desc2: When it's done, move on to the next step.
+    btn: Choose
+  choice:
+    title: Connection choice
+    ethernet: Connecting your “<strong>Keepix</strong>” to<br>a <strong>wired network</strong>.
+    wifi: Connecting your “<strong>Keepix</strong>” to<br> a <strong>wireless network</strong>.
+    btn: Choose
+  ethernet:
+    title: Add one new Keepix
+    desc: Please connect your “<strong>Keepix</strong>” with an ethernet cable.
+    back: Back to choice
+    detection: Start detection
+  wifi:
+    title: Add one new Keepix
+    desc: Please connect to “<strong>Keepix</strong>” Wifi.
+    back: Back to choice
+    detection: Start detection
   form:
     name:
       label: Name of your Keepix
@@ -159,3 +169,19 @@ list:
       placeholder: Create an password
       error: Password not found.
       incorrect: Incorrect password.
+    submit: Apply
+  success:
+    title: Setup successful
+    desc: Congratulations, your “<strong>Keepix</strong>” is now ready.
+    btn: Go to your Keepix(s)
+
+list:
+  title: List of your Keepix's
+  back_home: Back to homepage
+  back_list: Back to list
+  no_keepix: Sorry, no Keepix has been found on this network yet.
+  add_keepix: Add one new Keepix
+  wifi: Please connect to “<strong>Keepix</strong>” Wifi.
+  setup: Setup
+  not_found: Sorry, Keepix not found.
+  unknow_error: Unknown Error.

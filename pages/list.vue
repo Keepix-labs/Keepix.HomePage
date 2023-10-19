@@ -7,6 +7,7 @@
     for (let i = 20; i < 101; i++) {
       try {
         const response = await fetch(`http://192.168.1.${i}:9000/app`, { signal: AbortController().signal })
+        
         if (response.status === 200) {
           list_keepix.value.push({
             ip: i,

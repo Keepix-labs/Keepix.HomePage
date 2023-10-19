@@ -2,11 +2,11 @@
 
 /* Import base */
 
-@import 'mixins/medias';
-@import 'base/variables';
-@import 'base/reset';
-@import 'base/fonts';
-@import 'base/lenis';
+@import "mixins/medias";
+@import "base/variables";
+@import "base/reset";
+@import "base/fonts";
+@import "base/lenis";
 
 /* General Styles */
 
@@ -29,18 +29,20 @@ html {
   }
 }
 
-html, body {
+html,
+body {
   overscroll-behavior-y: none;
   scroll-behavior: smooth;
 }
 
-*::selection, .selection-black *::selection {
-  background-color: rgba(var(--bg-primary-rgb) / .7);
+*::selection,
+.selection-black *::selection {
+  background-color: rgba(var(--bg-primary-rgb) / 0.7);
   color: var(--txt-secondary);
 }
 
 .selection-white *::selection {
-  background-color: rgba(var(--bg-body-rgb) / .7);
+  background-color: rgba(var(--bg-body-rgb) / 0.7);
   color: var(--txt-primary);
 }
 
@@ -136,7 +138,7 @@ svg {
 
 [data-reveal] {
   --translate: 2rem;
-  --duration: .6s;
+  --duration: 0.6s;
   opacity: 0;
 
   &.reveal {
@@ -152,12 +154,12 @@ svg {
   &[data-reveal="top"] {
     --y: calc(var(--translate) * -1);
   }
-  
+
   &[data-reveal="right"] {
     --x: var(--translate);
     --y: 0;
   }
-  
+
   &[data-reveal="left"] {
     --x: calc(var(--translate) * -1);
     --y: 0;
@@ -177,8 +179,9 @@ svg {
 
 /* Components */
 
-@import 'components/glitch';
-@import 'components/button';
-@import 'components/header';
-@import 'components/heading';
-@import 'components/footer';
+@import "components/glitch";
+@import "components/button";
+@import "components/header";
+@import "components/heading";
+@import "components/footer";
+@import "components/loader";

@@ -1,14 +1,13 @@
 /* Variables */
 
 :root {
-
   /* Transition */
-  --cubic: cubic-bezier(.305, .045, .355, 1);
-  --transition-link: .3s;
+  --cubic: cubic-bezier(0.305, 0.045, 0.355, 1);
+  --transition-link: 0.3s;
 
   /* Fonts */
-  --font-family-main: 'Satoshi', Helvetica, Arial, sans-serif;
-  --font-family-heading: 'Clash Display', Helvetica, Arial, sans-serif;
+  --font-family-main: "Satoshi", Helvetica, Arial, sans-serif;
+  --font-family-heading: "Clash Display", Helvetica, Arial, sans-serif;
   --font-size-primary: calc(13px + 2 * (100vw - 320px) / 1080);
   --font-size-heading: min(calc(27px + 35 * (100vw - 320px) / 1080), 80px);
 
@@ -27,8 +26,10 @@
   --txt-secondary: rgb(var(--txt-secondary-rgb));
 
   /* Color */
-  --error-rgb: 247 81 69; 
+  --error-rgb: 247 81 69;
   --error: rgb(var(--error-rgb));
+  --info-rgb: 53 168 222;
+  --info: rgb(var(--info-rgb));
 
   /* Marge */
   --marge-primary: calc(10px + 4 * (100vw - 320px) / 1080);
@@ -40,7 +41,9 @@
 
   /* Content */
   --content-padding: calc(20px + 5 * (100vw - 320px) / 1080);
-  --content-width: calc(700px + 400 * (100vw - 320px) / 1080 + var(--content-padding) * 2);
+  --content-width: calc(
+    700px + 400 * (100vw - 320px) / 1080 + var(--content-padding) * 2
+  );
   --content-max: 85vw;
 
   /* Header */
@@ -58,5 +61,4 @@
   @include max($breakpoint-xxs) {
     --content-max: 92vw;
   }
-
 }
