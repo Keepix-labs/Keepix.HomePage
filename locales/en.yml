@@ -150,6 +150,7 @@ setup:
     desc: Please connect your “<strong>Keepix</strong>” with an ethernet cable.
     back: Back to choice
     detection: Start detection
+    choice: "Select the “<strong>Keepix</strong>” you want to setup :"
   wifi:
     title: Add one new Keepix
     desc: Please connect to “<strong>Keepix</strong>” Wifi.

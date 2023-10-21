@@ -2,6 +2,9 @@
   import { set } from '@vueuse/core'
   
   const localePath = useLocalePath()
+  const keepix = useKeepix()
+  const list = ref(null)
+  const selectedKeepix = ref(null)
   const search = ref(true)
   const config = ref(false)
   const ssidOptions = ref([])
@@ -12,22 +15,26 @@
   const error = ref(null)
   const loading = ref(false)
 
-  const setup = async () => {
+  const startDetection = async () => {
+    set(loading, true);
+    const tempList = await keepix.getAll();
+    set(loading, false);
+    set(list, tempList);
+    set(search, !tempList.length)
+  }
 
-    AbortSignal.timeout ??= function timeout(ms) {
-      const ctrl = new AbortController()
-      setTimeout(() => ctrl.abort(), ms)
-      return ctrl.signal
-    }
+  const setup = async (ip) => {
 
-    let request = undefined
+    set(selectedKeepix, ip)
+
+    let request
 
     set(loading, true)
 
     try {
 
-      request = await fetch('http://192.168.1.1:9000/app/wifi/list', { 
-        signal: AbortSignal.timeout(5000) 
+      request = await fetch(`http://${selectedKeepix.value}:9000/app/wifi/list`, { 
+        signal: AbortSignal.timeout(1000) 
       })
 
     } catch (e) {
@@ -46,10 +53,11 @@
       set(search, false)
       set(config, true)
       set(error, null)
+      set(list, null)
 
     } else {
 
-      set(search, true)
+      set(search, false)
       set(error, 'list.not_found')
       set(config, false)
 
@@ -72,7 +80,7 @@
 
     try {
 
-      request = await fetch('http://192.168.1.1:9000/app/wifi', {
+      request = await fetch(`http://${selectedKeepix.value}:9000/app/wifi/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +90,7 @@
           ssid: ssid,
           password: password
         }),
-        signal: AbortSignal.timeout(5000)
+        signal: AbortSignal.timeout(1000)
       })
 
       if (request.status == 200) {
@@ -92,6 +100,7 @@
         if (result == false) {
           return set(error, 'setup.form.password.incorrect')
         } else {
+          keepix.setSetupKeepix(selectedKeepix.value);
           window.location = '/setup/success'
         }
 
@@ -123,7 +132,27 @@
         <Icon name="material-symbols:settings-ethernet" />
         <p v-html="$t('setup.ethernet.desc')"></p>
       </div>
-      <Btn :text="$t('setup.ethernet.detection')" icon="ph:gear" @click="setup()" />
+      <Btn :text="$t('setup.ethernet.detection')" icon="ph:gear" @click="startDetection()" />
+    </template>
+    <template v-if="list">
+      <p v-html="$t('setup.ethernet.choice')"/>
+      <ul class="setup-list">
+      <li v-for="keepix in list" v-if="list.length">
+        <div @click="() => setup(keepix.ip)" target="_blank" class="keepix">
+          <div class="illu">
+            <Logo :white="true" />
+          </div>
+          <div>
+            <strong>{{ keepix.name }}</strong>
+            <small>{{ keepix.ip }}</small>
+            <p>TEMP isAlreadySetup : {{ keepix.alreadySetup }}</p>
+          </div>
+        </div>
+      </li>
+      <li v-else class="message">
+        <Icon name="ph:smiley-sad-light" /> {{ $t('list.no_keepix') }}
+      </li>
+    </ul>
     </template>
     <template v-if="config">
       <div class="form">
