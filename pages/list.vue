@@ -12,8 +12,6 @@ const init = async () => {
   const list = await getAllKeepix();
   set(loading, false);
 
-  console.log(list);
-
   set(detectedKeepix, list);
 };
 
