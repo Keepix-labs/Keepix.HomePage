@@ -150,12 +150,17 @@ setup:
     desc: Please connect your “<strong>Keepix</strong>” with an ethernet cable.
     back: Back to choice
     detection: Start detection
+    isSetup: Already setup
+    notSetup: Not setup yet
     choice: "Select the “<strong>Keepix</strong>” you want to setup :"
   wifi:
     title: Add one new Keepix
     desc: Please connect to “<strong>Keepix</strong>” Wifi.
     back: Back to choice
     detection: Start detection
+    isSetup: Already setup
+    notSetup: Not setup yet
+    choice: "Select the “<strong>Keepix</strong>” you want to setup :"
   form:
     name:
       label: Name of your Keepix

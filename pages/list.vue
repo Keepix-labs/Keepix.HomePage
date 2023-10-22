@@ -1,36 +1,33 @@
-<script setup>
-  const localePath = useLocalePath()
+<script lang="ts" setup>
+import { set } from "@vueuse/core";
 
-  const list_keepix = ref([])
+const localePath = useLocalePath();
+const { getAll: getAllKeepix } = useKeepix();
 
-  const get_keepix = async () => {
-    for (let i = 20; i < 101; i++) {
-      try {
-        const response = await fetch(`http://192.168.1.${i}:9000/app`, { signal: AbortSignal.timeout(1000), })
-        
-        if (response.status === 200) {
-          list_keepix.value.push({
-            ip: i,
-            name: `Keepix ${i}`,
-            url: `http://192.168.1.${i}`
-          })
-        }
-      } catch (e) {
-        console.log(i)
-      }
-    }
-  }
+const detectedKeepix = ref<Keepix[]>([]);
+const loading = ref(false);
 
-  onMounted(() => {
-    get_keepix()
-  })
+const init = async () => {
+  set(loading, true);
+  const list = await getAllKeepix();
+  set(loading, false);
+
+  console.log(list);
+
+  set(detectedKeepix, list);
+};
+
+onMounted(() => {
+  init();
+})
 </script>
 
 <template>
   <NuxtLayout name="setup">
-    <h1 class="setup-title">{{ $t('list.title') }} ({{ list_keepix.length }})</h1>
-    <ul class="setup-list">
-      <li v-for="keepix in list_keepix" v-if="list_keepix.length > 0">
+    <h1 class="setup-title">{{ $t('list.title') }} ({{ detectedKeepix.length }})</h1>
+    <Loader v-if="loading">Loading...</Loader>
+    <ul class="setup-list" v-if="!loading">
+      <li v-for="keepix in detectedKeepix" v-if="detectedKeepix.length">
         <a :href="keepix.url" target="_blank" class="keepix">
           <div class="illu">
             <Logo :white="true" />
