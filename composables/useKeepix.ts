@@ -8,32 +8,29 @@ export type Keepix = {
 export const useKeepix = () => {
   const getAll = async () => {
     const list: Keepix[] = [];
-
-    const fetchPromises = [];
+    const imagesTry = [];
 
     for (let i = 20; i < 101; i++) {
-      const fetchPromise = fetch(`http://192.168.1.${i}:9000/app`, {
-        signal: AbortSignal.timeout(3000),
-      })
-        .then(async (response) => {
-          if (response.status === 200) {
-            const name = await response.text();
-            const ip = `192.168.1.${i}`;
-
-            list.push({
-              ip,
-              name,
-              url: `http://${ip}`,
-              alreadySetup: isSetupKeepix(ip),
-            });
-          }
-        })
-        .catch((e) => {});
-
-      fetchPromises.push(fetchPromise);
+      let newImg = { img: new Image(), completed: false };
+        newImg.img.onload = () => {
+          const ip = `192.168.1.${i}`;
+          list.push({
+            ip,
+            name: ip,
+            url: `http://${ip}`,
+            alreadySetup: isSetupKeepix(ip),
+          });
+          newImg.completed = true;
+      }
+      // Why searching keepix via picture link? -> https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content
+      // Try exists keepix on non https
+      newImg.img.src = `http://192.168.1.${i}:9000/api/favicon-32x32.png?${(new Date().getTime())}`;
+      imagesTry.push(newImg);
     }
 
-    await Promise.all(fetchPromises);
+    await new Promise((resolve) => {
+      setTimeout(() => resolve(true), 3000);
+    });
 
     return list;
   };
