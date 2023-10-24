@@ -28,9 +28,15 @@ export const useKeepix = () => {
       imagesTry.push(newImg);
     }
 
+    // wait 3 secondes.
     await new Promise((resolve) => {
       setTimeout(() => resolve(true), 3000);
     });
+
+    // cancel loading 
+    for (let img of imagesTry) {
+      img.img.src = '';
+    }
 
     return list;
   };
