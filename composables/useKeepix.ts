@@ -23,7 +23,7 @@ export const useKeepix = () => {
             list.push({
               ip,
               name,
-              url: `http://${ip}:9000/`,
+              url: `http://${ip}`,
               alreadySetup: isSetupKeepix(ip),
             });
           }

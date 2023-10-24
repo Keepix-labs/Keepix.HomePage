@@ -7,7 +7,7 @@
   const { data: btc } = await useFetch('https://api.pro.coinbase.com/products/BTC-USD/ticker')
   const { data: eth } = await useFetch('https://api.pro.coinbase.com/products/ETH-USD/ticker')
   
-  const price_dollar = ref(599)
+  const price_dollar = ref(699)
   const round = ref(6)
 
   const price_btc = computed(() => (price_dollar.value / parseFloat(btc.value.price)).toFixed(round.value))
