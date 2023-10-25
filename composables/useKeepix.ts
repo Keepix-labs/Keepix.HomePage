@@ -3,16 +3,46 @@ export type Keepix = {
   name: string;
   url: string;
   alreadySetup: boolean;
+  subdomain: string;
 };
 
 export const useKeepix = () => {
+  const subdomains =  [
+    "rose", "lily", "tulip", "elephant", "lotus", "orchid", "dog", "peony", "iris", "violet",
+    "tiger", "lion", "leopard", "cheetah", "jaguar", "cougar", "lynx", "cat", "dog", "fox",
+    "wolf", "bear", "koala", "panda", "eagle", "hawk", "falcon", "owl", "crow", "sparrow",
+    "robin", "finch", "dove", "pigeon", "quail", "duck", "goose", "swan", "turkey", "hen",
+    "peafowl", "quokka", "stoat", "otter", "beaver", "marten", "ferret", "mink", "sable", "weasel",
+    "shrimp", "prawn", "crab", "lobster", "oyster", "clam", "mussel", "dragon", "slug", "sea",
+    "fly", "bee", "ant", "wasp", "moth", "butterfly", "beetle", "dragonfly", "flea", "tick",
+    "spider", "scorpion", "park", "cake", "snail", "jeremy", "worm", "snake", "gecko", "lizard",
+    "turtle", "tortoise", "alligator", "crocodile", "newt", "salamander", "frog", "toad", "fish", "sabrina",
+    "ray", "eel", "cod", "herring", "mackerel", "trout", "salmon", "tuna", "bass", "perch",
+    "roach", "carp", "goldfish", "guppy", "molly", "platty", "tetra", "danio", "rasbora", "barb",
+    "loach", "catfish", "pleco", "cory", "shark", "gourami", "betta", "angel", "discus", "oscar",
+    "ram", "apisto", "puffer", "goby", "blenny", "wrasse", "wine", "tang", "trigger", "parrot",
+    "clown", "damsel", "anthias", "basslet", "gramma", "jawfish", "firefish", "hawkfish", "pipefish", "seahorse",
+    "star", "urchin", "anemone", "coral", "sponge", "jelly", "octopus", "squid", "cuttle", "nautilus",
+    "seaweed", "algae", "moss", "fern", "palm", "oak", "pine", "maple", "birch", "aspen",
+    "willow", "cedar", "spruce", "ocean", "larch", "yew", "elm", "ash", "beech", "alder",
+    "hazel", "holly", "ivy", "viburnum", "black", "azalea", "camellia", "magnolia", "jasmine", "lavender",
+    "sage", "fred", "basil", "oregano", "mint", "nico", "parsley", "cilantro", "dill", "fennel",
+    "cumin", "moon", "saffron", "turmeric", "ginger", "garlic", "onion", "leek", "shallot", "chive",
+    "apple", "pear", "peach", "plum", "cherry", "grape", "kiwi", "lime", "lemon", "orange",
+    "banana", "mango", "melon", "berry", "fig", "date", "olive", "nut", "acorn", "chestnut",
+    "pecan", "walnut", "almond", "hazelnut", "pistachio", "cashew", "coconut", "cocoa", "vanilla", "clove",
+    "pepper", "mustard", "sesame", "poppy", "sunflower", "daisy", "chamomile", "mina", "rosemary", "thyme",
+    "paper", "white", "brown", "pie", "barber", "satoshi", "vitalik", "bull", "fud", "titanic", "titan", "dark", "dock", "blob", "grey"
+]
+
   const getAll = async () => {
     const list: Keepix[] = [];
 
     const fetchPromises = [];
 
-    for (let i = 20; i < 101; i++) {
-      const fetchPromise = fetch(`http://192.168.1.${i}:9000/app`, {
+    for (let i = 1; i < 255; i++) {
+      
+      const fetchPromise = fetch(`https://${subdomains[i-1]}.keepix.org:9000/app`, {
         signal: AbortSignal.timeout(3000),
       })
         .then(async (response) => {
@@ -22,8 +52,9 @@ export const useKeepix = () => {
 
             list.push({
               ip,
+              subdomain: subdomains[i-1],
               name,
-              url: `http://${ip}`,
+              url: `https://${subdomains[i-1]}.keepix.org`,
               alreadySetup: isSetupKeepix(ip),
             });
           }
