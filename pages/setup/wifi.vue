@@ -9,10 +9,10 @@ const { reveal } = useReveal();
 const step = ref<"START" | "CHOICE" | "SETUP" | "SUCCESS">("START");
 
 const detectedKeepix = ref<Keepix[]>([]);
-const selectedKeepixIp = ref<string | null>(null);
+const selectedKeepix = ref<Keepix | null>(null);
 
 const ssidOptions = ref<string[]>([]);
-const name = ref("Keepix");
+const name = computed(() => selectedKeepix.value ? selectedKeepix.value.name : 'Keepix');
 const ssid = ref("");
 const password = ref("");
 const hidePassword = ref(true);
@@ -28,15 +28,15 @@ const startDetection = async () => {
   set(step, 'CHOICE');
 };
 
-const setup = async (ip: string) => {
-  set(selectedKeepixIp, ip);
+const setup = async (keepix: Keepix) => {
+  set(selectedKeepix, keepix);
 
   let request;
 
   set(loading, true);
 
   try {
-    request = await fetch(`http://${selectedKeepixIp.value}:9000/app/wifi/list`, {
+    request = await fetch(`${selectedKeepix.value?.url}:9000/app/wifi/list`, {
       signal: AbortSignal.timeout(3000),
     });
   } catch (e) {
@@ -74,15 +74,15 @@ const submit = async () => {
   set(loading, true);
 
   try {
-    request = await fetch(`http://${selectedKeepixIp.value}:9000/app/wifi`, {
+    request = await fetch(`${selectedKeepix.value?.url}:9000/app/wifi`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
-        ssid: ssid,
-        password: password,
+        name: name.value,
+        ssid: ssid.value,
+        password: password.value,
       }),
       signal: AbortSignal.timeout(3000),
     });
@@ -93,8 +93,11 @@ const submit = async () => {
       if (result == false) {
         return set(error, "setup.form.password.incorrect");
       } else {
-        if (selectedKeepixIp.value) {
-          setSetupKeepix(selectedKeepixIp.value);
+        if (selectedKeepix.value?.url) {
+          setSetupKeepix({
+            ...selectedKeepix.value,
+            name: name.value
+          });
         }
 
         router.push("/setup/success");
@@ -140,7 +143,7 @@ watch(step, (newStep) => {
       <p v-html="$t('setup.wifi.choice')" data-reveal />
       <ul class="setup-list" data-reveal>
         <li v-for="keepix in detectedKeepix" v-if="detectedKeepix.length">
-          <div @click="() => setup(keepix.ip)" target="_blank" class="keepix">
+          <div @click="() => setup(keepix)" target="_blank" class="keepix">
             <div class="illu">
               <Logo :white="true" />
             </div>

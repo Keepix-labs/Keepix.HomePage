@@ -178,7 +178,9 @@ setup:
     submit: Apply
   success:
     title: Setup successful
-    desc: Congratulations, your “<strong>Keepix</strong>” is now ready.
+    desc: Congratulations, your “<strong>{name}</strong>” is now ready.
+    desc2: "It will be available through this alias :"
+    desc3: This link is just a redirect to your local but easier to remind it than the IP.
     btn: Go to your Keepix(s)
 
 list:

@@ -32,7 +32,7 @@ onMounted(() => {
           </div>
           <div>
             <strong>{{ keepix.name }}</strong>
-            <small>{{ keepix.ip }}</small>
+            <small>{{ keepix.url }}</small>
           </div>
         </a>
       </li>

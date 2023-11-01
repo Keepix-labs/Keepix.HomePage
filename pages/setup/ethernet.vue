@@ -9,9 +9,9 @@ const { reveal } = useReveal();
 const step = ref<'START' | 'CHOICE' | 'SETUP' | 'SUCCESS'>('START');
 
 const detectedKeepix = ref<Keepix[]>([]);
-const selectedKeepixIp = ref<string | null>(null);
+const selectedKeepix = ref<Keepix | null>(null);
 
-const name = ref("Keepix");
+const name = computed(() => selectedKeepix.value ? selectedKeepix.value.name : 'Keepix');
 const error = ref(null);
 const loading = ref(false);
 
@@ -24,8 +24,8 @@ const startDetection = async () => {
   set(step, 'CHOICE');
 };
 
-const setup = async (ip: string) => {
-  set(selectedKeepixIp, ip);
+const setup = async (keepix: Keepix) => {
+  set(selectedKeepix, keepix);
   set(error, null);
   set(detectedKeepix, []);
 
@@ -42,25 +42,28 @@ const submit = async () => {
   set(loading, true);
 
   try {
-    request = await fetch(`http://${selectedKeepixIp.value}:9000/settings`, {
+    request = await fetch(`${selectedKeepix.value?.url}:9000/settings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
+        name: name.value,
       }),
       signal: AbortSignal.timeout(3000),
     });
 
-    if (request.status == 200) {
+    if (request.status == 201) {
       const result = await request.json();
 
       if (result == false) {
         return set(error, "setup.form.password.incorrect");
       } else {
-        if (selectedKeepixIp.value) {
-          setSetupKeepix(selectedKeepixIp.value);
+        if (selectedKeepix.value?.url) {
+          setSetupKeepix({
+            ...selectedKeepix.value,
+            name: name.value
+          });
         }
 
         router.push("/setup/success");
@@ -106,7 +109,7 @@ watch(step, (newStep) => {
       <p v-html="$t('setup.ethernet.choice')" data-reveal />
       <ul class="setup-list" data-reveal>
         <li v-for="keepix in detectedKeepix" v-if="detectedKeepix.length">
-          <div @click="() => setup(keepix.ip)" target="_blank" class="keepix">
+          <div @click="() => setup(keepix)" target="_blank" class="keepix">
             <div class="illu">
               <Logo :white="true" />
             </div>
