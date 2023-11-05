@@ -193,3 +193,17 @@ list:
   setup: Setup
   not_found: Sorry, Keepix not found.
   unknow_error: Unknown Error.
+
+modal:
+  back: Back
+  next: Next
+  close: Close
+  cart: Cart
+  delivery: Delivery
+  payment: Payment
+  product: Product
+  price: Price
+  qty: Quantity
+  subtotal: Subtotal
+  total: Total
+  checkout: Proceed to checkout

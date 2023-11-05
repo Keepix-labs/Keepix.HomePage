@@ -1,6 +1,7 @@
 <script setup>
   import { set } from '@vueuse/core'
   const color = 'rgb(0 0 0)'
+  const { state } = useModal()
 
   const head = useLocaleHead({
     addDirAttribute: true,
@@ -37,7 +38,7 @@
       <Meta name="viewport" content="width=device-width, initial-scale=1" />
       <Meta name="theme-color" :content="color" />
     </Head>
-    <Body :class="{ up: up }">
+    <Body :class="{ up: up, overflow: state }">
       <NuxtPage />
       <Sprites />
     </Body>

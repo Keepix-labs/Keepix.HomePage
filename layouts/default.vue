@@ -11,5 +11,6 @@
   <main class="main">
     <slot />
   </main>
+  <BuyModal />
   <Footer />
 </template>

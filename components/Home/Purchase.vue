@@ -1,17 +1,11 @@
 <script setup>
   const { $gsap: gsap } = useNuxtApp()
+  const { open } = useModal()
   const list = 5
   const img = ref(null)
   const { height } = useElementBounding(img)
 
-  const { data: btc } = await useFetch('https://api.pro.coinbase.com/products/BTC-USD/ticker')
-  const { data: eth } = await useFetch('https://api.pro.coinbase.com/products/ETH-USD/ticker')
-  
-  const price_dollar = ref(699)
-  const round = ref(6)
-
-  const price_btc = computed(() => (price_dollar.value / parseFloat(btc.value.price)).toFixed(round.value))
-  const price_eth = computed(() => (price_dollar.value / parseFloat(eth.value.price)).toFixed(round.value))
+  const { price_dollar, price_btc, price_eth } = useProduct()
 
   onMounted(() => {
 
@@ -81,7 +75,7 @@
             </li>
           </ul>
           <div data-reveal>
-            <Btn text="Purchase" icon="ph:shopping-cart-simple-light" />
+            <Btn text="Purchase" icon="ph:shopping-cart-simple-light" @click="open" />
           </div>
         </div>
       </div>
