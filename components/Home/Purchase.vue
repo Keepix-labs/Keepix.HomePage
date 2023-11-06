@@ -51,7 +51,9 @@
       </div>
       <div class="purchase-right">
         <div class="purchase-box selection-white" :style="`--height: ${height.toFixed()}px`">
-          <NuxtPicture ref="img" class="purchase-box-img" src="/img/keepix-v1.png" :alt="$t('site')" />
+          <picture ref="img" class="purchase-box-img">
+            <img src="/img/keepix-v1.png" :alt="$t('site')" loading="lazy" width="566" height="347" />
+          </picture>
           <h3 data-reveal>{{ $t('index.purchase.box.title') }}</h3>
           <p data-reveal>{{ $t('index.purchase.box.txt') }}</p>
           <ul class="list">

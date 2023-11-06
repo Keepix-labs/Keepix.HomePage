@@ -45,7 +45,9 @@ const total_eth = computed(() => subTotal_eth.value)
         <tr class="sep"><td></td></tr>
         <tr>
           <td>
-            <NuxtPicture src="/img/keepix-v1.png" :alt="$t('site')" />
+            <picture>
+              <img src="/img/keepix-v1.png" :alt="$t('site')" loading="lazy" width="566" height="347" />
+            </picture>
           </td>
           <td><strong>Keepix v1</strong></td>
           <td>${{ price_dollar }}</td>
