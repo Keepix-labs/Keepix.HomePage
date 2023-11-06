@@ -1,9 +1,12 @@
 site: Keepix
 start: Pre-order now
+required: Required
+optional: Optional
 
 seo:
   index:
     title: Keepix • Your way to proof of home.
+    description:  Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
 
 header:
   nav:
@@ -207,3 +210,17 @@ modal:
   subtotal: Subtotal
   total: Total
   checkout: Proceed to checkout
+  deliveryAddress: Delivery address
+  billingAddress: Billing address
+  goPayment: Go to payment
+  form:
+    firstname: First name
+    lastname: Last name
+    company: Company
+    country: Country
+    address: Street address
+    zip: Zipcode
+    city: City
+    phone: Phone
+    mail: Email address
+    different: Ship to a different address?

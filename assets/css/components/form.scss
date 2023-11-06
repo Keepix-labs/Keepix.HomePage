@@ -11,6 +11,12 @@
     font-weight: normal;
     font-style: italic;
   }
+
+  abbr {
+    color: var(--error);
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 .input {
@@ -95,5 +101,43 @@
   & > *:focus ~ span,
   & > *:hover ~ span {
     opacity: 0.15;
+  }
+}
+
+input {
+  &[type=radio],
+  &[type=checkbox] {
+    --size: 1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--size);
+    height: var(--size);
+    border: solid 1px var(--bg-secondary);
+    cursor: pointer;
+    border-radius: calc(var(--size) / 6);
+    vertical-align: middle;
+    top: -1px;
+    margin-right: .5ch;
+
+    &:checked {
+      border-color: var(--bg-primary);
+    }
+
+    &::before {
+      content: "";
+      inset: 100%;
+      background-color: var(--bg-primary);
+      position: absolute;
+      border-radius: inherit;
+    }
+
+    &:checked::before {
+      inset: 2px;
+    }
+  }
+
+  &[type=radio] {
+    border-radius: 50%;
   }
 }

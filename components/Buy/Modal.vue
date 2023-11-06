@@ -47,7 +47,7 @@ const setStep = (id: number) => set(stepNumber, id)
         <BuyDelivery />
         <template #action>
           <Btn @click="setStep(0)" :text="$t('modal.back')" attr="grey" />
-          <Btn @click="setStep(2)" :text="$t('modal.next')" icon="ph:arrow-right" attr="secondary" />
+          <Btn @click="setStep(2)" :text="$t('modal.goPayment')" icon="ph:arrow-right" attr="secondary" />
         </template>
       </BuyContent>
       <BuyContent v-else-if="stepNumber === 2">

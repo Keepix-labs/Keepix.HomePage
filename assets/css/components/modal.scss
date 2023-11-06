@@ -9,6 +9,13 @@
   transition: opacity var(--transition-modal), visibility var(--transition-modal);
   opacity: 0;
   visibility: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &.open {
     opacity: 1;
@@ -110,6 +117,12 @@
     font-family: var(--font-family-heading);
     font-size: calc(var(--font-size-heading) / 1.5);
     text-align: center;
+  }
+
+  &-subtitle {
+    font-weight: 600;
+    font-family: var(--font-family-heading);
+    font-size: calc(var(--font-size-heading) / 2);
   }
 
   &-table {
@@ -219,4 +232,34 @@
     gap: 1em;
     flex-wrap: wrap;
   }
+
+  &-form {
+    --gap: calc(var(--padding) / 2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--gap) / 1.25) var(--gap);
+
+    .col {
+      flex: 1;
+      flex-basis: calc(50% - var(--gap) / 2);
+      min-width: 200px;
+    }
+
+    .max {
+      flex: 1;
+      flex-basis: 100%;
+      min-width: 200px;
+    }
+
+    .input {
+      --bg: 200 200 200;
+      --color: var(--txt-primary);
+    }
+  }
+
+  .different {
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+  } 
 }
