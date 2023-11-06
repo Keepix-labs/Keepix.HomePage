@@ -5,11 +5,11 @@
   const infos = [
     {
       title: "footer.terms",
-      link: "/"
+      link: "/cgu"
     },
     {
       title: "footer.privacy",
-      link: "/"
+      link: "/cgu"
     }
   ]
 </script>
