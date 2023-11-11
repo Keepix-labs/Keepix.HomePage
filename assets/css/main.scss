@@ -33,6 +33,10 @@ html,
 body {
   overscroll-behavior-y: none;
   scroll-behavior: smooth;
+
+  &.overflow {
+    overflow: hidden;
+  }
 }
 
 *::selection,
@@ -179,9 +183,10 @@ svg {
 
 /* Components */
 
-@import "components/glitch";
+@import "components/form";
 @import "components/button";
 @import "components/header";
 @import "components/heading";
 @import "components/footer";
 @import "components/loader";
+@import "components/modal";

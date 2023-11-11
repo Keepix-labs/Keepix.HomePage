@@ -1,15 +1,15 @@
 <script setup>
   const title = ref(null)
   const { width } = useElementBounding(title)
-  const mail = "contact@keepix.lab"
+  const mail = "contact@keepix.org"
   const infos = [
     {
       title: "footer.terms",
-      link: "/"
+      link: "/cgu"
     },
     {
       title: "footer.privacy",
-      link: "/"
+      link: "/cgu"
     }
   ]
 </script>

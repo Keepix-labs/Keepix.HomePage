@@ -26,10 +26,14 @@
   --txt-secondary: rgb(var(--txt-secondary-rgb));
 
   /* Color */
-  --error-rgb: 247 81 69;
-  --error: rgb(var(--error-rgb));
-  --info-rgb: 53 168 222;
-  --info: rgb(var(--info-rgb));
+	--error-rgb: 247 81 69; 
+	--error: rgb(var(--error-rgb));
+	--warning-rgb: 252 119 3;
+	--warning: rgb(var(--warning-rgb));
+	--success-rgb: 71 199 46; 
+	--success: rgb(var(--success-rgb));
+	--info-rgb: 125 44 212; 
+	--info: rgb(var(--info-rgb));
 
   /* Marge */
   --marge-primary: calc(10px + 4 * (100vw - 320px) / 1080);

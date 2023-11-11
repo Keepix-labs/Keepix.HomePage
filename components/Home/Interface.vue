@@ -42,8 +42,15 @@
           <use xlink:href="/img/sprite.svg#logo"/>
         </svg>
       </div>
-      <NuxtPicture class="interface-mockup-mac" src="/img/macbook.png" :alt="$t('site')" />
-      <NuxtPicture class="interface-mockup-bg" src="/img/bg-holo.jpg" :alt="$t('site')" />
+      <picture class="interface-mockup-mac">
+        <div class="interface-mockup-mac-video">
+          VIDEO DASHBOARD HERE
+        </div>
+        <img src="/img/macbook.webp" :alt="$t('site')" loading="lazy" width="1800" height="1530" />
+      </picture>
+      <picture class="interface-mockup-bg">
+        <img src="/img/bg-holo.webp" :alt="$t('site')" loading="lazy" width="2400" height="1800" />
+      </picture>
     </div>
   </div>
 </template>

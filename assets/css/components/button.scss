@@ -41,4 +41,8 @@
     --bg: var(--bg-primary);
     --color: var(--txt-secondary);
   }
+
+  &.grey {
+    --bg: var(--bg-secondary);
+  }
 }
