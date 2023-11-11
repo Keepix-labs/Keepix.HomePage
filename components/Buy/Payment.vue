@@ -1,6 +1,9 @@
 <script setup>
+const paymentIframeUrl = inject('paymentIframeUrl');
 </script>
 
 <template>
-  Payment content
+  <div class="iframe">
+    <iframe :src="paymentIframeUrl" frameborder="0"></iframe>
+  </div>
 </template>

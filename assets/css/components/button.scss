@@ -3,7 +3,8 @@
 .btn {
   --bg: var(--bg-body);
   --color: var(--txt-primary);
-  transition: background-color var(--transition-link), color var(--transition-link), transform .15s;
+  transition: background-color var(--transition-link),
+    color var(--transition-link), transform 0.15s;
   font-weight: 700;
   background: var(--bg);
   color: var(--color);
@@ -15,7 +16,7 @@
   white-space: nowrap;
   text-align: center;
   border: 2px solid var(--bg);
-  gap: .75em;
+  gap: 0.75em;
   user-select: none;
 
   &.bordered {
@@ -24,17 +25,17 @@
 
     &:hover {
       background-color: var(--bg);
-      color: var(--color)
+      color: var(--color);
     }
   }
 
   &:active {
-    transform: scale(.95);
+    transform: scale(0.95);
   }
 
   svg {
-    top: .1em;
-    margin-right: -.5em;
+    top: 0.1em;
+    margin-right: -0.5em;
   }
 
   &.secondary {
@@ -44,5 +45,10 @@
 
   &.grey {
     --bg: var(--bg-secondary);
+  }
+
+  &[disabled="true"] {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
 }

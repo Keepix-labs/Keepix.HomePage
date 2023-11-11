@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 import { set } from '@vueuse/core'
 
 const { t } = useI18n()
@@ -22,14 +22,103 @@ const steps = [
 const stepNumber = ref(0)
 const stepActive = computed(() => steps[stepNumber.value])
 
-const setStep = (id: number) => set(stepNumber, id)
+const setStep = (id) => set(stepNumber, id)
+
+const error = ref(null);
+const isLoading = ref(false);
+
+
+const formData = reactive({
+  "payment_method": "mycryptocheckout",
+  "payment_method_title": "Cryptocurrency",
+  "set_paid": false,
+  "billing": {
+    "first_name": "",
+    "last_name": "",
+    "address_1": "",
+    "city": "",
+    "postcode": "",
+    "country": "",
+    "email": "",
+    "phone": ""
+  },
+  "shipping": {
+    "first_name": "",
+    "last_name": "",
+    "address_1": "",
+    "city": "",
+    "postcode": "",
+    "country": "",
+    "email": "",
+    "phone": ""
+  },
+  "line_items": [
+    {
+      "product_id": 20,
+      "quantity": 1
+    }
+  ]
+});
+provide('formData', formData);
+provide('differentAddress', ref(false));
+const paymentIframeUrl = ref(null);
+provide('paymentIframeUrl', paymentIframeUrl);
+
+const isSubmitDisable = computed(() => {
+  return (
+    Object.keys(formData.shipping).some((key) => formData.shipping[key] === '') ||
+    Object.keys(formData.billing).some((key) => formData.billing[key] === '')
+  );
+});
+
+const WooCommerceAPIUrl = "https://admin.keepix.org/wp-json/wc/v3/orders";
+const WooCommerceApiKey = "ck_1e5523e41a7691c8bbc04e143bc8ed19d4803ede";
+const WooCommerceApiSecret = "cs_d769a96929ec5c5ed5e4ca44cfd507c882c1cc4c";
+
+
+const createOrder = async () => {
+  const url = new URL(WooCommerceAPIUrl, window.location.origin);
+
+  set(isLoading, true);
+  set(error, null);
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${btoa(`${WooCommerceApiKey}:${WooCommerceApiSecret}`)}`,
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const responseData = await response.json();
+
+    if (!response.ok || !responseData.payment_url) {
+      if (responseData.data.params && (responseData.data.params.billing || responseData.data.params.shipping)) {
+        throw new Error(responseData.data.params.billing || responseData.data.params.shipping);
+      }
+
+      throw new Error(`HTTP error ${response.status}`);
+    }
+
+    set(paymentIframeUrl, responseData.payment_url);
+
+    setStep(2);
+  } catch (e) {
+    set(error, e);
+  }
+
+  set(isLoading, false);
+};
+
 </script>
 
 <template>
   <div class="modal" :class="{ open: state }">
     <div class="modal-wrapper">
       <Btn @click="close" text="Close" icon="ph:x" attr="grey close" rounded />
-      <div class="modal-title">{{ stepActive.title }}</div>     
+      <div class="modal-title">{{ stepActive.title }}</div>
       <ul class="modal-step" :data-active="stepNumber">
         <template v-for="step, index in steps">
           <li :class="stepNumber > index ? 'ok' : undefined">
@@ -45,9 +134,12 @@ const setStep = (id: number) => set(stepNumber, id)
       </BuyContent>
       <BuyContent v-else-if="stepNumber === 1">
         <BuyDelivery />
+        <Loader v-if="isLoading">Creating order ...</Loader>
+        <div v-if="error" class="message error">{{ error }}</div>
         <template #action>
           <Btn @click="setStep(0)" :text="$t('modal.back')" attr="grey" />
-          <Btn @click="setStep(2)" :text="$t('modal.goPayment')" icon="ph:arrow-right" attr="secondary" />
+          <Btn @click="!isSubmitDisable ? createOrder() : null" :text="$t('modal.goPayment')" icon="ph:arrow-right"
+            attr="secondary" :disabled="isSubmitDisable" />
         </template>
       </BuyContent>
       <BuyContent v-else-if="stepNumber === 2">
