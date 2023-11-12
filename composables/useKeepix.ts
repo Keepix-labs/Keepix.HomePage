@@ -282,12 +282,17 @@ export const useKeepix = () => {
             const name = await response.text();
             const ip = `192.168.1.${i}`;
 
-            list.push({
+            const keepix = {
               ip,
               subdomain: subdomains[i - 1],
               name,
               url: `https://${subdomains[i - 1]}.keepix.org`,
-              alreadySetup: isSetupKeepix(ip),
+              alreadySetup: false,
+            };
+
+            list.push({
+              ...keepix,
+              alreadySetup: isSetupKeepix(keepix),
             });
           }
         })

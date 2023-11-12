@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="setup">
     <h1 class="setup-title">{{ $t('setup.success.title') }}</h1>
-    <div class="message">
+    <div class="message" v-if="currentKeepix">
       <p v-html="$t('setup.success.desc', { name: currentKeepix.name })"></p><br>
       <p>{{ $t('setup.success.desc2') }}</p>
       <a href="{{ currentKeepix.url }}" class="setup-title">{{ currentKeepix.url }}</a>

@@ -71,6 +71,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 7% 12% 0 0;
+    pointer-events: none;
 
     &::before,
     &::after {
