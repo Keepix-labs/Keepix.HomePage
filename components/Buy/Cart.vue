@@ -1,11 +1,13 @@
 <script setup>
-import { set } from '@vueuse/core' 
+import { set } from '@vueuse/core'
 
 const { price_dollar, price_btc, price_eth, round } = useProduct()
 
 const qty = ref(1)
 const qty_min = 1
 const qty_max = 999
+
+const formData = inject('formData');
 
 watch(qty, (newQty) => {
   if (newQty < qty_min) {
@@ -14,11 +16,13 @@ watch(qty, (newQty) => {
   else if (newQty > qty_max) {
     set(qty, qty_max)
   }
+
+  formData.line_items[0].quantity = newQty;
 })
 
 const rounded = price => {
   return price.toFixed(round.value)
-} 
+}
 
 const subTotal_dollar = computed(() => price_dollar.value * qty.value)
 const subTotal_btc = computed(() => rounded(price_btc.value * qty.value))
@@ -42,7 +46,9 @@ const total_eth = computed(() => subTotal_eth.value)
         </tr>
       </thead>
       <tbody>
-        <tr class="sep"><td></td></tr>
+        <tr class="sep">
+          <td></td>
+        </tr>
         <tr>
           <td>
             <picture>
@@ -52,18 +58,13 @@ const total_eth = computed(() => subTotal_eth.value)
           <td><strong>Keepix v1</strong></td>
           <td>${{ price_dollar }}</td>
           <td>
-            <input 
-              v-model="qty" 
-              type="number" 
-              :min="qty_min" 
-              :max="qty_max" 
-              step="1"
-              class="qty"
-              />
+            <input v-model="qty" type="number" :min="qty_min" :max="qty_max" step="1" class="qty" />
           </td>
           <td class="right"><strong>${{ subTotal_dollar }}</strong></td>
         </tr>
-        <tr class="sep"><td></td></tr>
+        <tr class="sep">
+          <td></td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -80,8 +81,12 @@ const total_eth = computed(() => subTotal_eth.value)
           </td>
           <td colspan="2" class="right">
             <strong>${{ total_dollar }}</strong>
-            <small><Icon name="mdi:bitcoin" /><strong>{{ total_btc }}</strong></small>
-            <small><Icon name="mdi:ethereum" /><strong>{{ total_eth }}</strong></small>
+            <small>
+              <Icon name="mdi:bitcoin" /><strong>{{ total_btc }}</strong>
+            </small>
+            <small>
+              <Icon name="mdi:ethereum" /><strong>{{ total_eth }}</strong>
+            </small>
           </td>
         </tr>
       </tfoot>
