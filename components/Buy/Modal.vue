@@ -24,10 +24,6 @@ const stepActive = computed(() => steps[stepNumber.value])
 
 const setStep = (id) => set(stepNumber, id)
 
-const error = ref(null);
-const isLoading = ref(false);
-
-
 const formData = reactive({
   "payment_method": "mycryptocheckout",
   "payment_method_title": "Cryptocurrency",
@@ -71,46 +67,17 @@ const isSubmitDisable = computed(() => {
   );
 });
 
-const WooCommerceAPIUrl = "https://admin.keepix.org/wp-json/wc/v3/orders";
-const WooCommerceApiKey = "ck_1e5523e41a7691c8bbc04e143bc8ed19d4803ede";
-const WooCommerceApiSecret = "cs_d769a96929ec5c5ed5e4ca44cfd507c882c1cc4c";
+const { fetchProductPrice, createOrder, isLoading, error, orderUrl } = useShopAPI();
 
-
-const createOrder = async () => {
-  const url = new URL(WooCommerceAPIUrl, window.location.origin);
-
-  set(isLoading, true);
-  set(error, null);
-
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${btoa(`${WooCommerceApiKey}:${WooCommerceApiSecret}`)}`,
-      },
-      body: JSON.stringify(formData),
-    });
-
-    const responseData = await response.json();
-
-    if (!response.ok || !responseData.payment_url) {
-      if (responseData.data.params && (responseData.data.params.billing || responseData.data.params.shipping)) {
-        throw new Error(responseData.data.params.billing || responseData.data.params.shipping);
-      }
-
-      throw new Error(`HTTP error ${response.status}`);
-    }
-
-    set(paymentIframeUrl, responseData.payment_url);
-
+watch(orderUrl, (newOrderUrl) => {
+  if (newOrderUrl) {
     setStep(2);
-  } catch (e) {
-    set(error, e);
   }
+});
 
-  set(isLoading, false);
-};
+onMounted(() => {
+  fetchProductPrice();
+});
 
 </script>
 
@@ -138,8 +105,8 @@ const createOrder = async () => {
         <div v-if="error" class="message error">{{ error }}</div>
         <template #action>
           <Btn @click="setStep(0)" :text="$t('modal.back')" attr="grey" />
-          <Btn @click="!isSubmitDisable ? createOrder() : null" :text="$t('modal.goPayment')" icon="ph:arrow-right"
-            attr="secondary" :disabled="isSubmitDisable" />
+          <Btn @click="!isSubmitDisable ? createOrder(formData) : null" :text="$t('modal.goPayment')"
+            icon="ph:arrow-right" attr="secondary" :disabled="isSubmitDisable" />
         </template>
       </BuyContent>
       <BuyContent v-else-if="stepNumber === 2">

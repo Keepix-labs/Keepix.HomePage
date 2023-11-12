@@ -1,9 +1,9 @@
 <script setup>
-const paymentIframeUrl = inject('paymentIframeUrl');
+const { orderUrl } = useShopAPI();
 </script>
 
 <template>
   <div class="iframe">
-    <iframe :src="paymentIframeUrl" frameborder="0"></iframe>
+    <iframe :src="orderUrl" frameborder="0"></iframe>
   </div>
 </template>
