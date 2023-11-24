@@ -30,7 +30,7 @@
   &::after {
     content: "";
     position: absolute;
-    inset: 0 0 0 70%;
+    inset: 0 0 0 75%;
     background: linear-gradient(
       to left,
       rgba(var(--bg-primary-rgb) / 85%),
@@ -59,19 +59,49 @@
     display: flex;
     align-items: center;
     gap: var(--marge-primary);
-    margin-top: calc(var(--marge-secondary) * 1.5);
+    margin: calc(var(--marge-secondary) * 1.5) 0 calc(var(--marge-secondary) / 1.5);
+    flex-wrap: wrap;
+  }
+
+  .mention {
+    color: var(--txt-secondary);
+    font-size: 1.1em;
+    font-weight: bold;
+
+    a {
+      font-size: 1.5em;
+      margin: 0 2px;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
   }
 
   &-illu {
     position: absolute;
     inset: 0;
-    z-index: 100;
+    z-index: 0;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 7% 12% 0 0;
     pointer-events: none;
+
+    video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+
+      @include max($breakpoint-xs) {
+        width: 200%;
+        left: -75%;
+        top: auto;
+        height: 65%;
+        bottom: 0%;
+        object-position: bottom right;
+      }
+    }
 
     &::before,
     &::after {
@@ -93,110 +123,6 @@
       --direction: to right;
       content: "";
       inset: 0 0 0 90%;
-    }
-
-    &-logo {
-      z-index: 5;
-      width: 32%;
-      font-size: calc(4px + 2 * (100vw - 320px) / 1080);
-
-      .logo {
-        z-index: 100;
-      }
-
-      &-crypto {
-        position: absolute;
-        z-index: 300;
-        inset: 0.4% 1% 1% 0.5%;
-      }
-
-      .crypto {
-        --size: calc(30px + 25 * (100vw - 320px) / 1080);
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: calc(var(--y) * 9.09% - (0.2px * var(--y)));
-        left: calc(var(--x) * 11% + (0.3px * var(--y)));
-        animation: logoCrypto 3s infinite linear;
-        animation-duration: calc(var(--duration, 1) * 2.5s);
-        z-index: 1000;
-
-        &::before {
-          content: "";
-          width: calc(var(--size) * 1.5);
-          height: calc(var(--size) * 1.5);
-          background-color: var(--color);
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          filter: blur(25px);
-          border-radius: 50%;
-        }
-
-        &::after {
-          content: "";
-          width: calc(var(--size) - 2px);
-          height: calc(var(--size) - 2px);
-          background-color: var(--color);
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 50%;
-        }
-
-        svg {
-          width: var(--size);
-          min-width: var(--size);
-          z-index: 10;
-        }
-
-        @keyframes logoCrypto {
-          from {
-            transform: translateY(calc(var(--size) * -0.5));
-          }
-          50% {
-            transform: translateY(calc(var(--size) * -0.8));
-          }
-          to {
-            transform: translateY(calc(var(--size) * -0.5));
-          }
-        }
-      }
-
-      .line {
-        position: absolute;
-        overflow: visible;
-        width: 23.3%;
-
-        &-0 {
-          right: 76.5%;
-          top: 35.28%;
-          z-index: 150;
-        }
-
-        &-1 {
-          left: 179%;
-          top: -117.7%;
-          z-index: 50;
-        }
-
-        &-2 {
-          left: 61.65%;
-          top: 13.7%;
-          z-index: 200;
-        }
-
-        &-3 {
-          left: 33%;
-          top: 62.3%;
-          z-index: 200;
-        }
-      }
     }
   }
 
@@ -950,6 +876,7 @@
     align-items: stretch;
     padding-top: var(--marge-secondary);
     text-align: center;
+    justify-content: center;
 
     li {
       --padding: calc(30px + 15 * (100vw - 320px) / 1080);
@@ -957,6 +884,7 @@
       --transition: 0.4s var(--cubic);
       background-color: var(--bg-body);
       flex: 1;
+      max-width: calc(300px + 50 * (100vw - 320px) / 1080);
       border-radius: var(--radius-primary);
       padding: var(--padding) calc(var(--padding) / 1.5);
       gap: calc(var(--padding) / 2);

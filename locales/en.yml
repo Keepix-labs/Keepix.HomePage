@@ -20,8 +20,11 @@ index:
       small: With Keepix, discover your way
       strong: to proof of home!
     txt: |
-      Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
+      Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly&nbsp;interface.
+    txtDownload: Use and Download the Keepix App on your own&nbsp;environment.
     learn: Learn more
+    download: Download on {name}
+    available: Keepix App available on 
   features:
     title:
       small: A multitudes of

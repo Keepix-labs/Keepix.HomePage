@@ -77,7 +77,7 @@
       <template v-for="meta in head.meta" :key="meta.id">
         <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
       </template>
-      <Link rel="icon" type="image/x-icon" href="/favicon.png" />
+      <Link rel="icon" type="image/x-icon" href="/favicon.png?v=1" />
     </Head>
     <Body :class="{ up: up, overflow: state }">
       <NuxtPage />
