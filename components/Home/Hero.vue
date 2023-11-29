@@ -1,44 +1,7 @@
 <script setup>
-import { set } from '@vueuse/core'
-const { $gsap: gsap } = useNuxtApp()
-
 const video = ref(null)
 
-const listPlatform = {
-  win: {
-    name: "Windows",
-    url: "",
-    icon: "mdi:windows"
-  },
-  mac: {
-    name: "macOS",
-    url: "",
-    icon: "mdi:apple"
-  },
-  linux: {
-    name: "Linux",
-    url: "",
-    icon: "mdi:linux"
-  }
-}
-const platformUser = ref('win')
-const platform = computed(() => listPlatform[platformUser.value])
-
-const getPlatform = () => {
-  const userAgent = window.navigator.userAgent.toLowerCase()
-  if (userAgent.includes('mac')) {
-    set(platformUser, 'mac')
-  } else if (userAgent.includes('win')) {
-    set(platformUser, 'win')
-  } else if (userAgent.includes('linux')) {
-    set(platformUser, 'linux')
-  }
-}
-
 onMounted(() => {
-
-  getPlatform()
-
   gsap.fromTo(video.value, {
     y: '0%',
     opacity: 1
@@ -54,7 +17,6 @@ onMounted(() => {
       scrub: true
     }
   })
-
 })
 </script>
 
@@ -68,19 +30,9 @@ onMounted(() => {
       </div>
       <div class="button" data-reveal>
         <Start />
-        <Btn 
-          :href="platform.link" 
-          :text="$t('index.hero.download', {name: platform.name})" 
-          bordered 
-          :icon="platform.icon" 
-          download />
+        <ApplicationDownloadButton bordered />
       </div>
-      <div class="mention" data-reveal>
-        {{ $t('index.hero.available') }}
-        <a v-for="platform in listPlatform" :href="platform.link" :aria-label="platform.name" download>
-          <Icon :name="platform.icon" />
-        </a>
-      </div>
+      <ApplicationDownloadList data-reveal />
     </div>
     <div class="hero-illu">
       <video ref="video" autoplay muted loop>

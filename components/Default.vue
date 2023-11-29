@@ -1,19 +1,17 @@
 <script setup>
-  const { $gsap: gsap } = useNuxtApp()
-  
-  onMounted(() => {
-    gsap.fromTo('.default-bg > div', {
-      y: '0%',
-    }, {
-      y: '25%',
-      scrollTrigger: {
-        trigger: '.default-bg',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      }
-    })
+onMounted(() => {
+  gsap.fromTo('.default-bg > div', {
+    y: '0%',
+  }, {
+    y: '25%',
+    scrollTrigger: {
+      trigger: '.default-bg',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
   })
+})
 </script>
 
 <template>

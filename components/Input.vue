@@ -1,11 +1,11 @@
 <script setup>
-  defineProps({
-    label: String,
-    small: String,
-    name: String,
-    icon: String,
-    required: Boolean
-  })
+defineProps({
+  label: String,
+  small: String,
+  name: String,
+  icon: String,
+  required: Boolean
+})
 </script>
 
 <template>

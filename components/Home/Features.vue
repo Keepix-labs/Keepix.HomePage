@@ -1,49 +1,48 @@
 <script setup>
-  const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp()
-  const list = 7
-  const left = ref(null)
-  const { height } = useElementBounding(left)
+const list = 7
+const left = ref(null)
+const { height } = useElementBounding(left)
 
-  onMounted(() => {
+onMounted(() => {
 
-    gsap.fromTo('.features-left-content', {
-      y: '0%'
-    }, {
-      y: '100%',
-      duration: 1,
-      scrollTrigger: {
-        trigger: '.features',
-        start: 'top bottom',
-        end: 'bottom bottom',
-        scrub: true
-      }
-    })
-
-    gsap.fromTo('.features-logo svg', {
-      y: '25%',
-    }, {
-      y: '-25%',
-      scrollTrigger: {
-        trigger: '.features',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true
-      }
-    })
-
-    gsap.fromTo('.features-logo svg', {
-      opacity: 0,
-    }, {
-      opacity: 1,
-      scrollTrigger: {
-        trigger: '.features',
-        start: 'top bottom',
-        end: 'top top',
-        scrub: true
-      }
-    })
-
+  gsap.fromTo('.features-left-content', {
+    y: '0%'
+  }, {
+    y: '100%',
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.features',
+      start: 'top bottom',
+      end: 'bottom bottom',
+      scrub: true
+    }
   })
+
+  gsap.fromTo('.features-logo svg', {
+    y: '25%',
+  }, {
+    y: '-25%',
+    scrollTrigger: {
+      trigger: '.features',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  })
+
+  gsap.fromTo('.features-logo svg', {
+    opacity: 0,
+  }, {
+    opacity: 1,
+    scrollTrigger: {
+      trigger: '.features',
+      start: 'top bottom',
+      end: 'top top',
+      scrub: true
+    }
+  })
+
+})
 </script>
 
 <template>

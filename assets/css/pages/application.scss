@@ -1,0 +1,45 @@
+/* Application */
+
+@import "/assets/css/mixins/medias";
+
+.appli {
+
+  /* Hero */
+
+  &-hero {
+    --top: calc(100px + 50 * (100vw - 320px) / 1080);
+    --bottom: calc(30px + 10 * (100vw - 320px) / 1080);
+    background-color: var(--bg-primary);
+    color: var(--txt-secondary);
+    border-radius: var(--radius-primary);
+    padding: var(--top) 0 var(--bottom);
+
+    .heading {
+      font-size: calc(var(--font-size-heading) / 1.2);
+      text-align: center;
+    }
+
+    .intro {
+      width: calc(var(--content-width) / 2);
+      max-width: 100%;
+      font-size: 1.25em;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 50vh;
+    }
+
+    &-bottom {
+      position: sticky;
+      bottom: var(--bottom);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--bottom) / 2);
+
+      .btn {
+        font-size: 1.15em;
+      }
+    }
+  }
+}

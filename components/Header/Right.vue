@@ -1,8 +1,8 @@
 <script setup>
-  const { locale, setLocale } = useI18n()
-  const { reveal } = useReveal()
+const { locale, setLocale } = useI18n()
+const { reveal } = useReveal()
 
-  watch(locale, () => useTimeoutFn(() => reveal(), 100))
+watch(locale, () => useTimeoutFn(() => reveal(), 100))
 </script>
 
 <template>

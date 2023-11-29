@@ -1,24 +1,24 @@
 <script setup>
-  defineProps({
-    white: Boolean,
-    animation: Boolean
-  })
+defineProps({
+  white: Boolean,
+  animation: Boolean
+})
 
-  const y = 90.5
-  const x = 156.5
-  const cubes = [
-    { y: 0, x: 4 },
-    { y: 1, x: 3 },
-    { y: 2, x: 2 },
-    { y: 3, x: 1 },
-    { y: 4, x: 0 },
-    { y: 3, x: 3, secondary: true },
-    { y: 3, x: 5, secondary: true },
-    { y: 4, x: 4, secondary: true },
-    { y: 5, x: 3, secondary: true },
-    { y: 7, x: 3 },
-    { y: 3 , x: 7 },
-  ]
+const y = 90.5
+const x = 156.5
+const cubes = [
+  { y: 0, x: 4 },
+  { y: 1, x: 3 },
+  { y: 2, x: 2 },
+  { y: 3, x: 1 },
+  { y: 4, x: 0 },
+  { y: 3, x: 3, secondary: true },
+  { y: 3, x: 5, secondary: true },
+  { y: 4, x: 4, secondary: true },
+  { y: 5, x: 3, secondary: true },
+  { y: 7, x: 3 },
+  { y: 3 , x: 7 },
+]
 </script>
 
 <template>

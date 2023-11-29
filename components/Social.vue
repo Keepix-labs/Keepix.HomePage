@@ -1,5 +1,5 @@
 <script setup>
-  const { socials } = useSocial()
+const { socials } = useSocial()
 </script>
 
 <template>

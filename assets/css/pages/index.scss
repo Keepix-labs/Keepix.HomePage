@@ -63,21 +63,6 @@
     flex-wrap: wrap;
   }
 
-  .mention {
-    color: var(--txt-secondary);
-    font-size: 1.1em;
-    font-weight: bold;
-
-    a {
-      font-size: 1.5em;
-      margin: 0 2px;
-
-      &:hover {
-        opacity: .5;
-      }
-    }
-  }
-
   &-illu {
     position: absolute;
     inset: 0;
@@ -608,6 +593,13 @@
         font-size: 1.25em;
       }
     }
+
+    &-button {
+      display: flex;
+      gap: .5em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   @include max($breakpoint-small) {
@@ -983,6 +975,10 @@
   @include max($breakpoint-xl) {
     ul {
       flex-direction: column;
+
+      li {
+        max-width: 100%;
+      }
     }
   }
 }

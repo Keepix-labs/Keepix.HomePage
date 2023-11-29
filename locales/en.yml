@@ -2,6 +2,7 @@ site: Keepix
 start: Pre-order now
 required: Required
 optional: Optional
+discoverApp: Discover Application
 
 seo:
   index:
@@ -13,6 +14,7 @@ header:
     discover: Discover
     products: Products
     setup: My Keepix
+    app: Application
 
 index:
   hero:
@@ -227,3 +229,11 @@ modal:
     phone: Phone
     mail: Email address
     different: Ship to a different address?
+
+application:
+  hero:
+    title:
+      small: A native application, a physical wallet,
+      strong: for secure cryptocurrencies.
+    intro: |
+      Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum.

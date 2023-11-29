@@ -1,42 +1,41 @@
 <script setup>
-  const { $gsap: gsap } = useNuxtApp()
-  const { open } = useModal()
-  const list = 5
-  const img = ref(null)
-  const { height } = useElementBounding(img)
+const { open } = useModal()
+const list = 5
+const img = ref(null)
+const { height } = useElementBounding(img)
 
-  const { price_dollar, price_btc, price_eth } = useProduct()
+const { price_dollar, price_btc, price_eth } = useProduct()
 
-  onMounted(() => {
+onMounted(() => {
 
-    gsap.fromTo('.purchase-left', {
-      y: '40%'
-    }, {
-      y: '0%',
-      duration: 1,
-      scrollTrigger: {
-        trigger: '.purchase',
-        start: 'top bottom',
-        end: 'bottom bottom',
-        scrub: true
-      }
-    })
-
-    gsap.fromTo('.purchase-logo svg use', {
-      y: '-40%',
-    }, {
-      y: '0%',
-      stagger: .1,
-      scrollTrigger: {
-        trigger: '.purchase',
-        start: 'top bottom',
-        endTrigger: '.footer',
-        end: 'bottom bottom',
-        scrub: true
-      }
-    })
-
+  gsap.fromTo('.purchase-left', {
+    y: '40%'
+  }, {
+    y: '0%',
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.purchase',
+      start: 'top bottom',
+      end: 'bottom bottom',
+      scrub: true
+    }
   })
+
+  gsap.fromTo('.purchase-logo svg use', {
+    y: '-40%',
+  }, {
+    y: '0%',
+    stagger: .1,
+    scrollTrigger: {
+      trigger: '.purchase',
+      start: 'top bottom',
+      endTrigger: '.footer',
+      end: 'bottom bottom',
+      scrub: true
+    }
+  })
+
+})
 </script>
 
 <template>

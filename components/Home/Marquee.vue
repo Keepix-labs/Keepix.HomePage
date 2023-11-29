@@ -14,7 +14,6 @@ const list = [
   'marquee.community',
   'marquee.participation'
 ];
-
 </script>
 
 <template>

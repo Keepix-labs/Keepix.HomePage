@@ -1,5 +1,5 @@
 <script setup>
-  const steps = 3
+const steps = 3
 </script>
 
 <template>
@@ -18,8 +18,9 @@
       </div>
       <div class="keeper-bottom">
         <p v-html="$t('index.keeper.bottom')" data-reveal></p>
-        <div data-reveal>
+        <div class="keeper-bottom-button" data-reveal>
           <Start />
+          <Btn :to="localePath('/application')" :text="$t('discoverApp')" bordered />
         </div>
       </div>
     </div>

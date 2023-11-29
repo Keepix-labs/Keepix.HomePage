@@ -1,19 +1,23 @@
 <script setup>
-  const localePath = useLocalePath()
-  const nav = [
-    {
-      title: 'header.nav.discover',
-      ancre: '#discover'
-    },
-    {
-      title: 'header.nav.products',
-      ancre: '#product'
-    },
-    {
-      title: 'header.nav.setup',
-      page: '/list'
-    }
-  ]
+const localePath = useLocalePath()
+const nav = [
+  // {
+  //   title: 'header.nav.discover',
+  //   ancre: '#discover'
+  // },
+  {
+    title: 'header.nav.products',
+    ancre: '/#product'
+  },
+  {
+    title: 'header.nav.app',
+    page: '/application'
+  },
+  {
+    title: 'header.nav.setup',
+    page: '/list'
+  }
+]
 </script>
 
 <template>

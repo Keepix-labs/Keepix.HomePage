@@ -1,6 +1,6 @@
 <script setup>
-  const header = ref(null)
-  const { y } = useElementBounding(header)
+const header = ref(null)
+const { y } = useElementBounding(header)
 </script>
 
 <template>

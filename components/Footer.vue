@@ -1,17 +1,17 @@
 <script setup>
-  const title = ref(null)
-  const { width } = useElementBounding(title)
-  const mail = "contact@keepix.org"
-  const infos = [
-    {
-      title: "footer.terms",
-      link: "/cgu"
-    },
-    {
-      title: "footer.privacy",
-      link: "/cgu"
-    }
-  ]
+const title = ref(null)
+const { width } = useElementBounding(title)
+const mail = "contact@keepix.org"
+const infos = [
+  {
+    title: "footer.terms",
+    link: "/cgu"
+  },
+  {
+    title: "footer.privacy",
+    link: "/cgu"
+  }
+]
 </script>
 
 <template>

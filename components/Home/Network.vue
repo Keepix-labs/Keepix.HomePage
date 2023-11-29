@@ -1,30 +1,30 @@
 <script setup>
-  const network = [
-    {
-      title: "Ethereum",
-      txt: "Ethereum (ETH) - A leading decentralized blockchain platform enabling smart contracts, DApps, and staking on Ethereum 2.0.",
-      icon: "cryptocurrency:eth",
-      color: "#35a8de",
-      apr: 3.6,
-      staked: 14485125
-    },
-    // {
-    //   title: "Polygon",
-    //   txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aspernatur.",
-    //   icon: "cryptocurrency:matic",
-    //   color: "#8a46ff",
-    //   apr: 4.7,
-    //   staked: 14485125
-    // },
-    // {
-    //   title: "Solana",
-    //   txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aspernatur.",
-    //   icon: "cryptocurrency:sol",
-    //   color: "#14F195",
-    //   apr: 5.8,
-    //   staked: 14485125
-    // }
-  ]
+const network = [
+  {
+    title: "Ethereum",
+    txt: "Ethereum (ETH) - A leading decentralized blockchain platform enabling smart contracts, DApps, and staking on Ethereum 2.0.",
+    icon: "cryptocurrency:eth",
+    color: "#35a8de",
+    apr: 3.6,
+    staked: 14485125
+  },
+  // {
+  //   title: "Polygon",
+  //   txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aspernatur.",
+  //   icon: "cryptocurrency:matic",
+  //   color: "#8a46ff",
+  //   apr: 4.7,
+  //   staked: 14485125
+  // },
+  // {
+  //   title: "Solana",
+  //   txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, aspernatur.",
+  //   icon: "cryptocurrency:sol",
+  //   color: "#14F195",
+  //   apr: 5.8,
+  //   staked: 14485125
+  // }
+]
 </script>
 
 <template>

@@ -1,18 +1,18 @@
 <script setup>
-  defineProps({
-    tag: {
-      type: String,
-      default: 'h2'
-    },
-    small: {
-      type: String,
-      required: true
-    },
-    strong: {
-      type: String,
-      required: true
-    }
-  })
+defineProps({
+  tag: {
+    type: String,
+    default: 'h2'
+  },
+  small: {
+    type: String,
+    required: true
+  },
+  strong: {
+    type: String,
+    required: true
+  }
+})
 </script>
 
 <template>

@@ -1,17 +1,17 @@
 <script setup>
-  const props = defineProps({
-    duration: {
-      type: Number,
-      default: 3
-    },
-    x: Number,
-    y: Number,
-    xTo: Number,
-    yTo: Number
-  })
+const props = defineProps({
+  duration: {
+    type: Number,
+    default: 3
+  },
+  x: Number,
+  y: Number,
+  xTo: Number,
+  yTo: Number
+})
 
-  const valueX = computed(() => `${props.x};${props.xTo}`)
-  const valueY = computed(() => `${props.y};${props.yTo}`)
+const valueX = computed(() => `${props.x};${props.xTo}`)
+const valueY = computed(() => `${props.y};${props.yTo}`)
 </script>
 
 <template>

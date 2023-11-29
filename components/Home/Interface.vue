@@ -1,30 +1,28 @@
 <script setup>
-  const { $gsap: gsap } = useNuxtApp()
+onMounted(() => {
 
-  onMounted(() => {
+  gsap.fromTo('.interface-mockup-logo svg', {y: '50%'}, {y: '-50%', duration: 1, scrollTrigger: {
+    trigger: '.interface-mockup-logo',
+    start: 'top bottom',
+    end: 'bottom top',
+    scrub: true
+  }})
 
-    gsap.fromTo('.interface-mockup-logo svg', {y: '50%'}, {y: '-50%', duration: 1, scrollTrigger: {
-      trigger: '.interface-mockup-logo',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    }})
+  gsap.fromTo('.interface-mockup-mac img', {y: '-10%'}, {y: '15%', duration: 1, scrollTrigger: {
+    trigger: '.interface',
+    start: 'top bottom',
+    end: 'bottom top',
+    scrub: true
+  }})
 
-    gsap.fromTo('.interface-mockup-mac img', {y: '-10%'}, {y: '15%', duration: 1, scrollTrigger: {
-      trigger: '.interface',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    }})
+  gsap.fromTo('.interface-mockup-bg img', {y: '-10%'}, {y: '15%', duration: 1, scrollTrigger: {
+    trigger: '.interface',
+    start: 'top bottom',
+    end: 'bottom top',
+    scrub: true
+  }})
 
-    gsap.fromTo('.interface-mockup-bg img', {y: '-10%'}, {y: '15%', duration: 1, scrollTrigger: {
-      trigger: '.interface',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    }})
-
-  })
+})
 </script>
 
 <template>
