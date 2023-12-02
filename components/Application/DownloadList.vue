@@ -18,12 +18,12 @@ const { list } = usePlatform()
   font-weight: bold;
 
   a {
-    transition: opacity var(--transition-link);
+    transition: color var(--transition-link);
     font-size: 1.5em;
     margin: 0 2px;
 
     &:hover {
-      opacity: .5;
+      color: var(--txt-tertiary);
     }
   }
 }

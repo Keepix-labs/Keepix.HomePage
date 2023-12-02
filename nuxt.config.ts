@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      urlBase: "https://keepix.org"
+    }
+  },
   css: ['@/assets/css/main.scss'],
   modules: ['@vueuse/nuxt', '@nuxtjs/i18n', 'nuxt-icon', '@nuxt/image'],
   i18n: {

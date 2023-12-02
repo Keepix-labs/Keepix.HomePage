@@ -68,6 +68,12 @@ svg {
     stroke-linejoin: round;
     stroke-miterlimit: 10;
   }
+
+  &-chain {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
 }
 
 .fill {

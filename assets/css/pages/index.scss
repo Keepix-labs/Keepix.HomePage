@@ -1,5 +1,6 @@
 /* Index */
 
+@import "/assets/css/mixins/styles";
 @import "/assets/css/mixins/medias";
 
 /* Hero */
@@ -235,23 +236,7 @@
   }
 
   &-logo {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    fill: var(--bg-body);
-    font-size: max(calc(2px - 1 * (100vw - 320px) / 1080), 1px);
-    position: absolute;
-    width: 100vw;
-    height: calc(100% + var(--marge-primary) * 2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 0;
-    color: var(--txt-primary);
-    pointer-events: none;
-    stroke: currentColor;
-    stroke-width: 1em;
-    opacity: 0.08;
+    @include logo-back;
   }
 
   @include min($breakpoint-large) {
@@ -808,23 +793,7 @@
 
   &-logo {
     --mask: linear-gradient(to bottom, #000 80%, transparent 100%);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    fill: var(--bg-body);
-    font-size: max(calc(2px - 1 * (100vw - 320px) / 1080), 1px);
-    position: absolute;
-    width: 100vw;
-    height: calc(100% + var(--marge-primary) * 2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 0;
-    color: var(--bg-secondary);
-    pointer-events: none;
-    stroke: currentColor;
-    stroke-width: 1em;
+    @include logo-back;
     mask: var(--mask);
     -webkit-mask: var(--mask);
 

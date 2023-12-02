@@ -6,7 +6,10 @@ discoverApp: Discover Application
 
 seo:
   index:
-    title: Keepix • Your way to proof of home.
+    title: Keepix • Your way to proof of home
+    description:  Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
+  application:
+    title: Keepix • Discover our native application
     description:  Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
 
 header:
@@ -236,4 +239,10 @@ application:
       small: A native application, a physical wallet,
       strong: for secure cryptocurrencies.
     intro: |
+      Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum.
+  chains:
+    title:
+      small: Centralize your wallets from your different chains
+      strong: with a single master password.
+    txt: |
       Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum.
