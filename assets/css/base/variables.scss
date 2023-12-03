@@ -10,6 +10,7 @@
   --font-family-heading: "Clash Display", Helvetica, Arial, sans-serif;
   --font-size-primary: calc(13px + 2 * (100vw - 320px) / 1080);
   --font-size-heading: min(calc(27px + 35 * (100vw - 320px) / 1080), 80px);
+  --font-size-heading-secondary: min(calc(25px + 20 * (100vw - 320px) / 1080), 80px);
 
   /* Background */
   --bg-body-rgb: 255 255 255;

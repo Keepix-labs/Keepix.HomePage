@@ -3,6 +3,8 @@ start: Pre-order now
 required: Required
 optional: Optional
 discoverApp: Discover Application
+noMobileApp: Unavailable on this device
+noMobileAppTxt: Download the app from a computer only.
 
 seo:
   index:
@@ -233,7 +235,7 @@ modal:
     phone: Phone
     mail: Email address
     different: Ship to a different address?
-
+    
 myOrdersModal:
   title: My orders
   form:
@@ -252,4 +254,30 @@ application:
       small: Centralize your wallets from your different chains
       strong: with a single master password.
     txt: |
+      Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum.
+  infos:
+    title:
+      small: Post hoc impie perpetratum,
+      strong: nebulas aestimati quidam.
+    intro: |
+      Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum.
+    txt: |
+      <p>Nec sane haec sola pernicies orientem diversis cladibus adfligebat. Namque et Isauri, quibus est usitatum saepe pacari saepeque inopinis excursibus cuncta miscere, ex latrociniis occultis et raris, alente inpunitate adulescentem in peius audaciam ad bella gravia proruperunt.</p>
+      <p>Et prima post Osdroenam quam, ut dictum est, ab hac descriptione discrevimus, Commagena, nunc Euphratensis, clementer adsurgit, Hierapoli, vetere Nino et Samosata civitatibus amplis inlustris.</p>
+    order: Pre-order Keepix
+  bloc:
+    1:
+      title: Per hoc minui studium
+      txt: Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum cultu ponentes sudant sub ponderibus lacernarum.
+    2:
+      title: Per hoc minui studium
+      txt: Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum cultu ponentes sudant sub ponderibus lacernarum.
+    3:
+      title: Per hoc minui studium
+      txt: Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum cultu ponentes sudant sub ponderibus lacernarum.
+  faq:
+    title:
+      small: Audaciam ad bella gravia,
+      strong: spiritus inrequietis.
+    intro: |
       Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum.

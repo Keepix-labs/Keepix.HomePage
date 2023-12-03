@@ -18,6 +18,9 @@ useSeoMeta({
   <NuxtLayout>
     <ApplicationHero />
     <ApplicationChains />
+    <ApplicationInfos />
+    <ApplicationBloc />
+    <ApplicationFaq />
   </NuxtLayout>
 </template>
 

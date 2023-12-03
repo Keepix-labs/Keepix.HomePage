@@ -5,6 +5,12 @@
   box-shadow: var(--shadow-primary);
 }
 
+@mixin style-black {
+  background-color: var(--bg-primary);
+  color: var(--txt-secondary);
+  border-radius: var(--radius-primary);
+}
+
 @mixin logo-back {
   left: 50%;
   top: 50%;

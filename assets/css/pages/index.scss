@@ -7,9 +7,7 @@
 
 .hero {
   --padding: calc(100px + 50 * (100vw - 320px) / 1080);
-  background-color: var(--bg-primary);
-  color: var(--txt-secondary);
-  border-radius: var(--radius-primary);
+  @include style-black;
   min-height: min(
     calc(100vh - var(--marge-primary) * 2),
     calc(600px + 300 * (100vw - 320px) / 1080)
@@ -460,10 +458,8 @@
 /* Keeper */
 
 .keeper {
-  background-color: var(--bg-primary);
-  border-radius: var(--radius-primary);
+  @include style-black;
   text-align: center;
-  color: var(--txt-secondary);
   padding: var(--marge-tertiary) 0 calc(var(--marge-tertiary) / 1.25);
   overflow: hidden;
   z-index: 15;

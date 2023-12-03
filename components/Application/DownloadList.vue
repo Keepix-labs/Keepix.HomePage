@@ -1,13 +1,17 @@
 <script setup>
 const { list } = usePlatform()
+const { isDesktop } = useDevice()
 </script>
 
 <template>
   <div class="list">
-    {{ $t('index.hero.available') }}
-    <NuxtLink v-for="platform in list" :href="platform.link" :aria-label="platform.name" download>
-      <Icon :name="platform.icon" />
-    </NuxtLink>
+    <template v-if="isDesktop">
+      {{ $t('index.hero.available') }}
+      <NuxtLink v-for="platform in list" :href="platform.link" :aria-label="platform.name" download>
+        <Icon :name="platform.icon" />
+      </NuxtLink>
+    </template>
+    <template v-else>{{ $t('noMobileAppTxt') }}</template>
   </div>
 </template>
 

@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     }
   },
   css: ['@/assets/css/main.scss'],
-  modules: ['@vueuse/nuxt', '@nuxtjs/i18n', 'nuxt-icon', '@nuxt/image'],
+  modules: ['@vueuse/nuxt', '@nuxtjs/i18n', 'nuxt-icon', '@nuxtjs/device'],
   i18n: {
     lazy: true,
     langDir: 'locales/',
@@ -36,9 +36,6 @@ export default defineNuxtConfig({
       //   file: 'ru.yml'
       // }
     ]
-  },
-  image: {
-    format: ['avif']
   }
 })
 
