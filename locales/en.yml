@@ -7,16 +7,17 @@ discoverApp: Discover Application
 seo:
   index:
     title: Keepix • Your way to proof of home
-    description:  Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
+    description: Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
   application:
     title: Keepix • Discover our native application
-    description:  Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
+    description: Secure your crypto at home, join blockchain decentralization, and earn passive income effortlessly with your own node on our user-friendly interface.
 
 header:
   nav:
     discover: Discover
     products: Products
     setup: My Keepix
+    myOrders: My orders
     app: Application
 
 index:
@@ -29,7 +30,7 @@ index:
     txtDownload: Use and Download the Keepix App on your own&nbsp;environment.
     learn: Learn more
     download: Download on {name}
-    available: Keepix App available on 
+    available: Keepix App available on
   features:
     title:
       small: A multitudes of
@@ -232,6 +233,12 @@ modal:
     phone: Phone
     mail: Email address
     different: Ship to a different address?
+
+myOrdersModal:
+  title: My orders
+  form:
+    orderNb: Order number
+    submit: Check my order
 
 application:
   hero:

@@ -76,6 +76,33 @@ export const useShopAPI = () => {
     set(isLoading, false);
   };
 
+  const getOrderById = async (id) => {
+    set(isLoading, true);
+    set(error, null);
+
+    try {
+      const response = await fetch(`${apiBase}/orders/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${btoa(`${apiKey}:${apiSecret}`)}`,
+        },
+      });
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
+      set(isLoading, false);
+
+      return responseData;
+    } catch (e) {
+      set(error, e);
+      set(isLoading, false);
+    }
+  };
+
   return {
     isLoading,
     error,
@@ -83,5 +110,6 @@ export const useShopAPI = () => {
     productPrice,
     createOrder,
     orderUrl,
+    getOrderById,
   };
 };

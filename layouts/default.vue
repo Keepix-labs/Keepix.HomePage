@@ -1,9 +1,9 @@
 <script setup>
-  const { reveal } = useReveal()
+const { reveal } = useReveal()
 
-  onMounted(() => {
-    reveal()
-  })
+onMounted(() => {
+  reveal()
+})
 </script>
 
 <template>
@@ -12,5 +12,6 @@
     <slot />
   </main>
   <BuyModal />
+  <BuyMyOrdersModal />
   <Footer />
 </template>
