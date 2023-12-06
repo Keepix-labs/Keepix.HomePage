@@ -327,7 +327,7 @@
   /* Faq */
 
   &-faq {
-    padding: var(--marge-tertiary) 0;
+    padding: var(--marge-tertiary) 0 calc(var(--marge-tertiary) - var(--marge-primary));
 
     .heading {
       font-size: var(--font-size-heading-secondary);
@@ -343,16 +343,79 @@
       display: flex;
       flex-direction: flex-start;
       gap: calc(var(--marge-secondary) * 2);
+
+      @include max($breakpoint-large) {
+        flex-direction: column;
+      }
     }
 
     &-left {
-      max-width: 45%;
-      border: 1px solid blue;
+      @include min($breakpoint-large) {
+        max-width: 45%;
+      }
     }
 
     &-right {
       flex: 1;
-      border: 1px solid red;
+
+      details {
+        --padding: calc(24px + 1 * (100vw - 320px) / 1080);
+        border-top: 1px solid var(--bg-secondary);
+
+        &:last-child {
+          border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        &[open] {
+          summary svg {
+            transform: rotate(180deg) translateY(-50%);
+            background-color: var(--bg-primary);
+            color: var(--txt-secondary);
+          }
+        }
+
+        summary {
+          list-style: none;
+          font-family: var(--font-family-heading);
+          font-size: 1.2em;
+          font-weight: 600;
+          padding: var(--padding) 0;
+          padding-right: 2.5em;
+          cursor: pointer;
+          user-select: none;
+
+          svg {
+            transition: color var(--transition-link), background-color var(--transition-link);
+            position: absolute;
+            right: 0;
+            background-color: var(--bg-secondary);
+            font-size: 1.8em;
+            top: 50%;
+            transform: translateY(-50%);
+            transform-origin: center top;
+            border-radius: .25em;
+            padding: .2em;
+          }
+
+          &:hover {
+            svg {
+              background-color: var(--bg-primary);
+              color: var(--txt-secondary);
+            }
+          }
+        }
+
+        .p {
+          padding-bottom: var(--padding);
+          line-height: 1.6em;
+          padding-right: 2em;
+          font-size: .95em;
+
+          & > * + * {
+            margin-top: 1em;
+          }
+        }
+      }
     }
   }
 }

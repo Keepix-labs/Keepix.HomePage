@@ -21,6 +21,7 @@ useSeoMeta({
     <ApplicationInfos />
     <ApplicationBloc />
     <ApplicationFaq />
+    <HomeMarquee />
   </NuxtLayout>
 </template>
 

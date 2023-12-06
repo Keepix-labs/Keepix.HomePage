@@ -1,6 +1,7 @@
 <script setup>
 const localePath = useLocalePath()
-const state = inject('myOrdersModalState');
+const state = inject('myOrdersModalState')
+const { state: stateNav } = useNav()
 
 const nav = [
   // {
@@ -31,7 +32,7 @@ const nav = [
 </script>
 
 <template>
-  <nav class="header-nav">
+  <nav class="header-nav" :class="{ open: stateNav }">
     <ul>
       <li v-for="link in nav">
         <NuxtLink v-if="link.page" :to="localePath(link.page)">{{ $t(link.title) }}</NuxtLink>

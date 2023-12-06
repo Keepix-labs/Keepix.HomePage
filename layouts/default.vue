@@ -4,6 +4,8 @@ const { reveal } = useReveal()
 onMounted(() => {
   reveal()
 })
+
+provide('myOrdersModalState', ref(false))
 </script>
 
 <template>

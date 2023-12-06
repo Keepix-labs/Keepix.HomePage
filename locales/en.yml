@@ -16,6 +16,7 @@ seo:
 
 header:
   nav:
+    title: Navigation
     discover: Discover
     products: Products
     setup: My Keepix
@@ -281,3 +282,40 @@ application:
       strong: spiritus inrequietis.
     intro: |
       Alii summum decus in carruchis solito altioribus et ambitioso vestium cultu ponentes sudant sub ponderibus lacernarum.
+    list:
+      1:
+        question: |
+          Spectaculo feris praedatricibus obiecti sunt?
+        answer: |
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum corrupti repudiandae quasi exercitationem praesentium! Vitae rerum reiciendis illum sapiente ratione mollitia commodi dolore obcaecati dignissimos, aliquid voluptatem expedita, quae explicabo.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, eveniet cumque. Dolores excepturi esse voluptatum voluptates, accusantium consectetur delectus eveniet nulla earum maxime officia magni dolore veniam eligendi rerum odit!</p>
+      2:
+        question: |
+          Spectaculo feris praedatricibus obiecti sunt?
+        answer: |
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum corrupti repudiandae quasi exercitationem praesentium! Vitae rerum reiciendis illum sapiente ratione mollitia commodi dolore obcaecati dignissimos, aliquid voluptatem expedita, quae explicabo.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, eveniet cumque. Dolores excepturi esse voluptatum voluptates, accusantium consectetur delectus eveniet nulla earum maxime officia magni dolore veniam eligendi rerum odit!</p>
+      3:
+        question: |
+          Spectaculo feris praedatricibus obiecti sunt?
+        answer: |
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum corrupti repudiandae quasi exercitationem praesentium! Vitae rerum reiciendis illum sapiente ratione mollitia commodi dolore obcaecati dignissimos, aliquid voluptatem expedita, quae explicabo.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, eveniet cumque. Dolores excepturi esse voluptatum voluptates, accusantium consectetur delectus eveniet nulla earum maxime officia magni dolore veniam eligendi rerum odit!</p>
+      4:
+        question: |
+          Spectaculo feris praedatricibus obiecti sunt?
+        answer: |
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum corrupti repudiandae quasi exercitationem praesentium! Vitae rerum reiciendis illum sapiente ratione mollitia commodi dolore obcaecati dignissimos, aliquid voluptatem expedita, quae explicabo.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, eveniet cumque. Dolores excepturi esse voluptatum voluptates, accusantium consectetur delectus eveniet nulla earum maxime officia magni dolore veniam eligendi rerum odit!</p>
+      5:
+        question: |
+          Spectaculo feris praedatricibus obiecti sunt?
+        answer: |
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum corrupti repudiandae quasi exercitationem praesentium! Vitae rerum reiciendis illum sapiente ratione mollitia commodi dolore obcaecati dignissimos, aliquid voluptatem expedita, quae explicabo.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, eveniet cumque. Dolores excepturi esse voluptatum voluptates, accusantium consectetur delectus eveniet nulla earum maxime officia magni dolore veniam eligendi rerum odit!</p>
+      6:
+        question: |
+          Spectaculo feris praedatricibus obiecti sunt?
+        answer: |
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum corrupti repudiandae quasi exercitationem praesentium! Vitae rerum reiciendis illum sapiente ratione mollitia commodi dolore obcaecati dignissimos, aliquid voluptatem expedita, quae explicabo.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, eveniet cumque. Dolores excepturi esse voluptatum voluptates, accusantium consectetur delectus eveniet nulla earum maxime officia magni dolore veniam eligendi rerum odit!</p>

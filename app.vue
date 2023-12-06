@@ -5,6 +5,8 @@ const runtimeConfig = useRuntimeConfig()
 const { t } = useI18n()
 const { state } = useModal()
 const { getPlatform } = usePlatform()
+const { isDesktop } = useDevice()
+const { state: stateNav } = useNav()
 
 const head = useLocaleHead({
   addDirAttribute: true,
@@ -38,7 +40,9 @@ const up = ref(false)
 
 watch(y, (newPos, oldPos) => {
   if (newPos > oldPos) {
-    set(up, false)
+    if (isDesktop === true) {
+      set(up, false)
+    }
   } else if (newPos < oldPos) {
     set(up, true)
   }
@@ -60,7 +64,8 @@ onMounted(() => {
       </template>
       <Link rel="icon" type="image/x-icon" href="/favicon.png?v=1" />
     </Head>
-    <Body :class="{ up: up, overflow: state }">
+    <Body :class="{ up: up, overflow: state, openNav: stateNav }">
+      {{ isDesktop }}
       <NuxtPage />
       <Sprites />
     </Body>

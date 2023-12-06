@@ -14,10 +14,6 @@
   </NuxtLayout>
 </template>
 
-<script setup>
-provide('myOrdersModalState', ref(false));
-</script>
-
 <style lang="scss">
 @import '/assets/css/pages/index';
 </style>
