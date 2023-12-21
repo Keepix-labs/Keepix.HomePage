@@ -65,7 +65,6 @@ onMounted(() => {
       <Link rel="icon" type="image/x-icon" href="/favicon.png?v=1" />
     </Head>
     <Body :class="{ up: up, overflow: state, openNav: stateNav }">
-      {{ isDesktop }}
       <NuxtPage />
       <Sprites />
     </Body>
