@@ -17,7 +17,7 @@ const head = useLocaleHead({
 const title = t('seo.index.title')
 const description = t('seo.index.description')
 const url = runtimeConfig.public.urlBase
-const thumbnail = `${url}/img+thumbnail.jpg`
+const thumbnail = `${url}/img/thumbnail.jpg`
 
 useSeoMeta({
   charset: "utf-8",
@@ -55,18 +55,20 @@ onMounted(() => {
 
 <template>
   <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
-    <Head>
-      <template v-for="link in head.link" :key="link.id">
-        <Link :id="link.id" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
-      </template>
-      <template v-for="meta in head.meta" :key="meta.id">
-        <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
-      </template>
-      <Link rel="icon" type="image/x-icon" href="/favicon.png?v=1" />
-    </Head>
-    <Body :class="{ up: up, overflow: state, openNav: stateNav }">
-      <NuxtPage />
-      <Sprites />
-    </Body>
-  </Html>
-</template>
+
+  <Head>
+    <template v-for="link in head.link" :key="link.id">
+      <Link :id="link.id" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
+    </template>
+    <template v-for="meta in head.meta" :key="meta.id">
+      <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
+    </template>
+    <Link rel="icon" type="image/x-icon" href="/favicon.png?v=1" />
+  </Head>
+
+  <Body :class="{ up: up, overflow: state, openNav: stateNav }">
+    <NuxtPage />
+    <Sprites />
+  </Body>
+
+</Html></template>
