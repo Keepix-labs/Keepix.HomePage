@@ -11,7 +11,7 @@ const step = ref<'START' | 'CHOICE' | 'SETUP' | 'SUCCESS'>('START');
 const detectedKeepix = ref<Keepix[]>([]);
 const selectedKeepix = ref<Keepix | null>(null);
 
-const name = computed(() => selectedKeepix.value ? selectedKeepix.value.name : 'Keepix');
+const name = ref(selectedKeepix.value ? selectedKeepix.value.name : 'Keepix');
 const error = ref(null);
 const loading = ref(false);
 

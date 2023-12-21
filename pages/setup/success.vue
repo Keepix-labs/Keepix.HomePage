@@ -12,12 +12,18 @@
 </template>
 
 <script setup>
+import { set } from "@vueuse/core";
+
 const localePath = useLocalePath();
 const { getAllSetupKeepix } = useKeepix();
 
-const list = getAllSetupKeepix();
+const list = ref([]);
 
-const currentKeepix = computed(() => list.length ? list[list.length - 1] : null);
+const currentKeepix = computed(() => list.value.length ? list.value[list.value.length - 1] : null);
+
+onMounted(() => {
+  set(list, getAllSetupKeepix());
+});
 </script>
 
 <style lang="scss" scoped>
