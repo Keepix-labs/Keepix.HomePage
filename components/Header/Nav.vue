@@ -9,10 +9,6 @@ const nav = [
   //   ancre: '#discover'
   // },
   {
-    title: 'header.nav.products',
-    ancre: '/#product'
-  },
-  {
     title: 'header.nav.app',
     page: '/application'
   },

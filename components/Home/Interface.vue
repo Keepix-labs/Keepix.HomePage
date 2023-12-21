@@ -42,7 +42,11 @@ onMounted(() => {
       </div>
       <picture class="interface-mockup-mac">
         <div class="interface-mockup-mac-video">
-          VIDEO DASHBOARD HERE
+           <!-- Video player element -->
+          <video style="width:100%;height:100%;" autoplay muted loop>
+            <source src="/keepix.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
         <img src="/img/macbook.webp" :alt="$t('site')" loading="lazy" width="1800" height="1530" />
       </picture>

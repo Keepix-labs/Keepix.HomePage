@@ -9,7 +9,7 @@ const infos = [
   },
   {
     title: "footer.privacy",
-    link: "/cgu"
+    link: "/privacy"
   }
 ]
 </script>
