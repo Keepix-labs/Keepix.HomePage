@@ -68,12 +68,31 @@ export const useShopAPI = () => {
         throw new Error(`HTTP error ${response.status}`);
       }
 
+      saveLastOrder(responseData.id);
+
       set(orderUrl, responseData.payment_url);
     } catch (e) {
       set(error, e);
     }
 
     set(isLoading, false);
+  };
+
+  const saveLastOrder = (id) => {
+    const storedOrders = window.localStorage.getItem("keepix-lastorders");
+    let value = [id];
+
+    if (storedOrders) {
+      value = JSON.parse(storedOrders);
+      value.push(id);
+    }
+
+    window.localStorage.setItem("keepix-lastorders", JSON.stringify(value));
+  };
+
+  const getLastOrders = () => {
+    const storedOrders = window.localStorage.getItem("keepix-lastorders");
+    return storedOrders ? JSON.parse(storedOrders) : [];
   };
 
   const getOrderById = async (id) => {
@@ -111,5 +130,6 @@ export const useShopAPI = () => {
     createOrder,
     orderUrl,
     getOrderById,
+    getLastOrders,
   };
 };

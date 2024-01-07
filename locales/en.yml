@@ -236,9 +236,10 @@ modal:
     phone: Phone
     mail: Email address
     different: Ship to a different address?
-    
+
 myOrdersModal:
   title: My orders
+  lastOrders: Here are your last orders
   form:
     orderNb: Order number
     submit: Check my order

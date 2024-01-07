@@ -991,3 +991,30 @@
     height: 1000px;
   }
 }
+
+.myorders {
+  --bg: 200 200 200;
+  --color: var(--txt-primary);
+
+  &-lastorders {
+    display: flex;
+    gap: 8px;
+
+    b {
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: rgba(var(--bg) / 20%);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--info);
+      }
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: 1000px;
+  }
+}
